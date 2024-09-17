@@ -163,3 +163,8 @@ a.secondary {
     filter: invert();
   }
 } */
+
+.title {
+  margin-top: 7vh;
+  margin-bottom: 7vh;
+}
