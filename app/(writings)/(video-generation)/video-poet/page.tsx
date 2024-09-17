@@ -12,7 +12,7 @@ import {
 
 import Image from "next/image";
 
-const image = require("./schematic.png");
+import image from './schematic.png'
 
 export default function VideoPoet() {
   return (
