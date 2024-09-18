@@ -21,16 +21,17 @@ export default function Home() {
         <Heading>Blogs</Heading>
       </Center>
       <VStack>
+        {/* TODO standardize blog entry into a component */}
         <Container maxW="container.lg" fontSize="xl">
-          {/* <Highlight
-            query={[""]}
-            styles={{ px: "2", py: "1", rounded: "full", bg: "teal.100" }}
-          >
-            
-          </Highlight> */}
           1.{" "}
           <Link as={NextLink} href="/video-poet">
             Reading of the VideoPoet paper on LLM video generation.
+          </Link>
+        </Container>
+        <Container maxW="container.lg" fontSize="xl">
+          2.{" "}
+          <Link as={NextLink} href="/stable-video-diffusion">
+            Stable video diffusion paper reading.
           </Link>
         </Container>
       </VStack>
