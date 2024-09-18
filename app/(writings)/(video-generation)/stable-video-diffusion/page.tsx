@@ -45,7 +45,7 @@ export default function VideoPoet() {
         (although not the entire time length of the total data size). The raw
         video is filtered for the motion it contains through{" "}
         <Text as="b">optical flow score</Text>. This score is computed by first
-        extracting dense optical flow maps at 2 fps using OpenCV's
+        extracting dense optical flow maps at 2 fps using the OpenCV
         implementation of Farneback algorithm, then the flow maps are downsized
         for efficient storage and averaged over space and time to obtain the
         score. Near motionless videos are filtered out. Some videos contain much
