@@ -44,18 +44,22 @@ export default function VideoPoet() {
         a video into clips increases the number of training data points
         (although not the entire time length of the total data size). The raw
         video is filtered for the motion it contains through{" "}
-        <Text as="b">optical flow score</Text>, and near motionless videos are
-        filtered out. Some videos contain much text (indeed, training video
-        models on presentation slides is pretty useless), these are recognized
-        by optical character recognition and removed from the training data.
-        Additional filtered by CLIP score and aesthetic score are also applied.
-        Once filtered the videos are then ran through captioning, and video
-        descriptions are generated from passing captions through LLM.
+        <Text as="b">optical flow score</Text>. This score is computed by first
+        extracting dense optical flow maps at 2 fps using OpenCV's
+        implementation of Farneback algorithm, then the flow maps are downsized
+        for efficient storage and averaged over space and time to obtain the
+        score. Near motionless videos are filtered out. Some videos contain much
+        text (indeed, training video models on presentation slides is pretty
+        useless), these are recognized by optical character recognition and
+        removed from the training data. Additional filtered by CLIP score and
+        aesthetic score are also applied. Once filtered the videos are then ran
+        through captioning, and video descriptions are generated from passing
+        captions through LLM.
       </Container>
 
       <Container fontSize="xl" maxW={"container.lg"}>
         <Heading as="h3" size="lg" pb="0.5em" pt="1em">
-          Training
+          Training and Evaluation
         </Heading>
         The authors proposes a three stage pipeline for training a video
         generation model:
@@ -67,8 +71,23 @@ export default function VideoPoet() {
         One take away during image pretraining is to adopt a noise schedule that
         shift towards more noise for high resolution images. It is found that
         after video pretraining the base model has learned motion
-        representation, as seen to outperform baselines in zero-shot
-        text-to-video generation.
+        representation, as the base model is seen to outperform baselines in
+        zero-shot text-to-video generation.
+      </Container>
+      <Container fontSize="xl" maxW={"container.lg"} pt="1em">
+        Frame interpolation is used to increase the frame rate, thereby
+        increasing the smoothness of videos. Evaluation is performed via user
+        preference study.
+      </Container>
+      <Container fontSize="xl" maxW={"container.lg"}>
+        <Heading as="h3" size="lg" pb="0.5em" pt="1em">
+          References
+        </Heading>
+        1.{" "}
+        <Text as="i">
+          Stable Video Diffusion: Scaling Latent Video Diffusion Models to Large
+          Datasets
+        </Text>
       </Container>
       <Box height="15vh" />
     </main>

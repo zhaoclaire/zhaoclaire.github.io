@@ -12,7 +12,7 @@ import {
 
 import Image from "next/image";
 
-import image from './schematic.png'
+import image from "./schematic.png";
 
 export default function VideoPoet() {
   return (
@@ -97,8 +97,11 @@ export default function VideoPoet() {
         <Heading as="h3" size="lg" pb="0.5em" pt="1em">
           References
         </Heading>
-        1. <Text as='i'>VideoPoet: A Large Language Model for Zero-Shot Video Generation</Text>
-    </Container>
+        1.{" "}
+        <Text as="i">
+          VideoPoet: A Large Language Model for Zero-Shot Video Generation
+        </Text>
+      </Container>
       <Box height="15vh" />
     </main>
   );
