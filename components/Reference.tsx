@@ -13,7 +13,7 @@ export default function Reference({
           References
         </Heading>
         {referenceList.map((reference, index) => (
-          <div>
+          <div key={index}>
             {1 + index}. <span>&nbsp;</span>
             <Text as="i">{reference}</Text>
           </div>
