@@ -1,12 +1,13 @@
 "use client";
 
-import { Container, Link, VStack } from "@chakra-ui/react";
+import { Container, Badge, Link, VStack } from "@chakra-ui/react";
 
 import NextLink from "next/link";
 
 interface Post {
   url: string;
   title: string;
+  inProgress?: boolean;
 }
 
 export default function BlogList({ posts }: { posts: Post[] }) {
@@ -20,7 +21,10 @@ export default function BlogList({ posts }: { posts: Post[] }) {
             {index + 1}.{" "}
             <Link as={NextLink} href={post.url}>
               {post.title}
-            </Link>
+            </Link>{" "}
+            {post.inProgress && (
+              <Badge colorScheme="orange">{"In progress"}</Badge>
+            )}
           </Container>
         ))}
     </VStack>

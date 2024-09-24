@@ -6,10 +6,16 @@
 // },
 
 const blogPosts = [
-  // {
-  //   title: 'Score entropy discrete diffusion models.',
-  //   url: '/score-entropy-discrete-diffusion',
-  // },
+  {
+    title: 'Diffusion Theory: Fokker-Planck Equation',
+    url: '/fokker-planck',
+    inProgress: true,
+  },
+  {
+    title: 'Score entropy discrete diffusion models.',
+    url: '/score-entropy-discrete-diffusion',
+    inProgress: true,
+  },
   {
     title: "Stable video diffusion paper reading.",
     url: "/stable-video-diffusion",
