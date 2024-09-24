@@ -38,6 +38,12 @@ export default function FokkerPlanck() {
 
       
       </Paragraph>
+      <SectionTitle title="Infinitesimal Generator" />
+      <Paragraph>
+      <Math latex="Af=\lim_{t\downarrow 0}\frac{1}{t}\left(P_tf - f\right)" display={true}/>
+        <Math latex="\frac{d}{dt}P_t f = AP_t f = P_tAf" display={true}/>
+        <Math latex="\frac{d}{dt}P_t(x,\cdot)  = A^* P_t(x,\cdot)" display={true}/>
+      </Paragraph>
       <Reference referenceList={references} />
     </Blog>
   );
