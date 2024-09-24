@@ -59,7 +59,7 @@ export default function SEDD() {
       <Paragraph>
         By analogy to the score function <Math latex="\nabla_x \log p_t(x)"/> in the continuous diffusion process, the ratio 
         <Math latex="\frac{p_t(x)}{p_t(y)}" /> occuring in the matrix <Math latex="R_t" /> above are called <Text as='b'>concrete score</Text>.
-        The neural network learns the concrete score. In the the first author's blog, another motivation for learning the concrete score is given:
+        The neural network learns the concrete score. In the the first author&apos;s blog, another motivation for learning the concrete score is given:
         a nerual network <Math latex="f_\theta" /> can parametrize the probability distribution as in an energy based model <Math latex="p_\theta(x)=e^{f_\theta(x)}/\mathcal{Z}" />.
         The partition function <Math latex="\mathcal{Z}" /> is intractable, so a better idea is to work with the ratios, which is the concrete score
         <Math latex="\frac{p_t(x)}{p_t(y)}=\frac{e^{f_\theta(x)}/\mathcal{Z}}{e^{f_\theta(y)}/\mathcal{Z}}" display={true}/>
