@@ -8,6 +8,7 @@ interface Post {
   url: string;
   title: string;
   inProgress?: boolean;
+  notStarted?: boolean;
 }
 
 export default function BlogList({ posts }: { posts: Post[] }) {
@@ -24,6 +25,9 @@ export default function BlogList({ posts }: { posts: Post[] }) {
             </Link>{" "}
             {post.inProgress && (
               <Badge colorScheme="orange">{"In progress"}</Badge>
+            )}
+            {post.notStarted && (
+              <Badge colorScheme="blue">{"Coming soon"}</Badge>
             )}
           </Container>
         ))}
