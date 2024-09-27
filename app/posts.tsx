@@ -7,6 +7,16 @@
 
 const blogPosts = [
   {
+    title: "AnimateDiff paper reading.",
+    url: "/animate-diff",
+    notStarted: true,
+  },
+  {
+    title: "Reading of guided video synthesis paper.",
+    url: "/guided-video-synthesis",
+    notStarted: true,
+  },
+  {
     title: "Reading of the Control Net paper.",
     url: "/control-net",
     notStarted: true,
