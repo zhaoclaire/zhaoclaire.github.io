@@ -6,10 +6,14 @@ import Paragraph from "@/components/Paragraph";
 import Reference from "@/components/Reference";
 import SectionTitle from "@/components/SectionTitle";
 import { Container, List, ListItem, OrderedList, Text } from "@chakra-ui/react";
+import { title } from "process";
 
 export default function GuidedVideoSynthesis() {
   const references = [
-    "AnimateDiff: Animate Your Personalized Text-to-Image Diffusion Models without Specific Tuning",
+    {
+      title: "AnimateDiff: Animate Your Personalized Text-to-Image Diffusion Models without Specific Tuning",
+      url: 'https://animatediff.github.io'
+    },
   ];
   return (
     <Blog>

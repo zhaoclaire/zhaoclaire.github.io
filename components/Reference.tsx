@@ -1,10 +1,16 @@
 "use client";
-import { Heading, Text, Container } from "@chakra-ui/react";
+import { Heading, Text, Container, Link } from "@chakra-ui/react";
+import NextLink from "next/link";
+
+interface ReferenceItem {
+  title: string;
+  url?: string;
+}
 
 export default function Reference({
   referenceList,
 }: {
-  referenceList: string[];
+  referenceList: ReferenceItem[];
 }) {
   return (
     <>
@@ -15,7 +21,13 @@ export default function Reference({
         {referenceList.map((reference, index) => (
           <div key={index}>
             {1 + index}. <span>&nbsp;</span>
-            <Text as="i">{reference}</Text>
+            {reference.url ? (
+              <Link as={NextLink} href={reference.url} isExternal>
+                {reference.title}
+              </Link>
+            ) : (
+              <Text as={"span"}>{reference.title}</Text>
+            )}{" "}
           </div>
         ))}
       </Container>
