@@ -1,4 +1,5 @@
 "use client";
+import Reference from "@/components/Reference";
 import style from "./page.module.css";
 
 import { Box, Center, Container, Heading, Text } from "@chakra-ui/react";
@@ -11,6 +12,12 @@ import {
 } from "@chakra-ui/react";
 
 export default function VideoPoet() {
+  const references = [
+    {
+      title: 'Stable Video Diffusion: Scaling Latent Video Diffusion Models to Large Datasets',
+      url: 'https://arxiv.org/pdf/2311.15127'
+    }
+  ]
   return (
     <main>
       <Center>
@@ -79,16 +86,7 @@ export default function VideoPoet() {
         increasing the smoothness of videos. Evaluation is performed via user
         preference study.
       </Container>
-      <Container fontSize="xl" maxW={"container.lg"}>
-        <Heading as="h3" size="lg" pb="0.5em" pt="1em">
-          References
-        </Heading>
-        1.{" "}
-        <Text as="i">
-          Stable Video Diffusion: Scaling Latent Video Diffusion Models to Large
-          Datasets
-        </Text>
-      </Container>
+      <Reference referenceList={references}/>
       <Box height="15vh" />
     </main>
   );

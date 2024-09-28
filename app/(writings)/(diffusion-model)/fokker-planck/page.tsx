@@ -9,9 +9,17 @@ import { Container, List, ListItem, OrderedList, Text, } from "@chakra-ui/react"
 
 export default function FokkerPlanck() {
   const references = [
-    'D. Revuz, M. York, Continuous Martingales and Brownian Motion, Grundlehren der mathematischen Wissenschaften, Third Edition',
-    'Y. Song et al., Score-Based Generative Modeling through Stochastic Differential Equations',
-    'Y. Song et al., Consistency Models'
+    {
+      title: 'D. Revuz, M. York, Continuous Martingales and Brownian Motion, Grundlehren der mathematischen Wissenschaften, Third Edition'
+    },
+    {
+      title: 'Y. Song et al., Score-Based Generative Modeling through Stochastic Differential Equations',
+      url: 'https://arxiv.org/pdf/2011.13456'
+    },
+    {
+      title: 'Y. Song et al., Consistency Models',
+      url: 'https://arxiv.org/pdf/2303.01469'
+    }
   ];
   return (
     <Blog>

@@ -6,10 +6,14 @@ import Paragraph from "@/components/Paragraph";
 import Reference from "@/components/Reference";
 import SectionTitle from "@/components/SectionTitle";
 import { Container, List, ListItem, OrderedList, Text } from "@chakra-ui/react";
+import { title } from "process";
 
 export default function GuidedVideoSynthesis() {
   const references = [
-    "Structure and Content-Guided Video Synthesis with Diffusion Models",
+    {
+      title: "Structure and Content-Guided Video Synthesis with Diffusion Models",
+      url: 'https://arxiv.org/pdf/2302.03011'
+    }
   ];
   return (
     <Blog>

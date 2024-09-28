@@ -1,11 +1,16 @@
 "use client";
-import { Box } from "@chakra-ui/react";
+import { Center, Link, Text } from "@chakra-ui/react";
+import NextLink from "next/link";
 
 export default function Blog(props: any) {
   return (
     <>
       {props.children}
-      <Box height="15vh" />
+      <Center height="15vh">
+      <Link as={NextLink} href="/">
+            <Text as='b'>Back Home 🏠</Text>
+        </Link>
+      </Center>
     </>
   );
 }

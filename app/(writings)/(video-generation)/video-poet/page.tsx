@@ -13,8 +13,15 @@ import {
 import Image from "next/image";
 
 import image from "./schematic.png";
+import Reference from "@/components/Reference";
 
 export default function VideoPoet() {
+  const references = [
+    {
+      title: 'VideoPoet: A Large Language Model for Zero-Shot Video Generation',
+      url: 'https://arxiv.org/pdf/2312.14125',
+    }
+  ]
   return (
     <main>
       <Center>
@@ -93,15 +100,7 @@ export default function VideoPoet() {
         and predict the backside of objects, although training did not involve
         losses on 3D consistency.
       </Container>
-      <Container fontSize="xl" maxW={"container.lg"}>
-        <Heading as="h3" size="lg" pb="0.5em" pt="1em">
-          References
-        </Heading>
-        1.{" "}
-        <Text as="i">
-          VideoPoet: A Large Language Model for Zero-Shot Video Generation
-        </Text>
-      </Container>
+      <Reference referenceList={references} />
       <Box height="15vh" />
     </main>
   );

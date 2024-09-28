@@ -9,7 +9,10 @@ import { Container, List, ListItem, OrderedList, Text } from "@chakra-ui/react";
 
 export default function Lumiere() {
   const references = [
-    "Lumiere: A Space-Time Diffusion Model for Video Generation",
+    {
+      title: "Lumiere: A Space-Time Diffusion Model for Video Generation",
+      url: 'https://arxiv.org/pdf/2401.12945'
+    }
   ];
   return (
     <Blog>

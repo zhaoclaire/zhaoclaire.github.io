@@ -1,11 +1,11 @@
 .heading {
   margin-top: 6vh;
-  margin-bottom: 6vh;
+  margin-bottom: 2vh;
 }
 
 @media only screen and (max-width: 600px) {
   .heading {
     margin-top: 3vh;
-    margin-bottom: 3vh;
+    margin-bottom: 2vh;
   }
 }

@@ -8,8 +8,11 @@ import SectionTitle from "@/components/SectionTitle";
 import { Container, List, ListItem, OrderedList, Text } from "@chakra-ui/react";
 
 export default function ControlNet() {
-  const references = [
-    "Adding Conditional Control to Text-to-Image Diffusion Models",
+  const references = [ 
+    {
+      title: "Adding Conditional Control to Text-to-Image Diffusion Models",
+      url: 'https://arxiv.org/pdf/2302.05543'
+    },
   ];
   return (
     <Blog>
