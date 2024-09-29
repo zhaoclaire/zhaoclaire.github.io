@@ -14,12 +14,14 @@ interface Post {
 }
 
 export default function BlogList({ posts }: { posts: Post[] }) {
-  const localStore = localStorage.getItem("seenPostList");
-  var seenPostList: number[] = [];
+  const [seenPostList, setSeenPostList] = useState<number[]>([]);
+  useEffect(() => {
+    const localStore = localStorage.getItem("seenPostList");
 
-  if (localStore) {
-    seenPostList = JSON.parse(localStore);
-  }
+    if (localStore) {
+      setSeenPostList(JSON.parse(localStore));
+    }
+  }, []);
 
   function appendPost(id: number) {
     if (!seenPostList.includes(id)) {

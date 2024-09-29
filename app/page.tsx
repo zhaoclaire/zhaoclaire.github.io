@@ -18,6 +18,7 @@ import styles from "./page.module.css";
 
 import BlogList from "@/components/BlogList";
 import blogPosts from "./posts";
+import { useEffect, useState } from "react";
 
 function clearViewedPapers() {
   localStorage.setItem("seenPostList", JSON.stringify([]));
@@ -25,12 +26,16 @@ function clearViewedPapers() {
 }
 
 export default function Home() {
-  var len = 0;
-  const localStore = localStorage.getItem("seenPostList");
-  if (localStore) {
-    var seenPostList: number[] = JSON.parse(localStore);
-    len = seenPostList.length;
-  }
+  const [len, setLen] = useState(0)
+  useEffect(()=>{
+    const localStore = localStorage.getItem("seenPostList");
+    if (localStore) {
+      const seenPostList: number[] = JSON.parse(localStore);
+      setLen(seenPostList.length);
+    }
+  }, [])
+  
+
 
   return (
     <>

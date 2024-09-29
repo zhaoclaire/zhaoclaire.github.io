@@ -22,7 +22,7 @@ export default function Math({latex, display=false, padding=true}: {latex: strin
                 macros: MACROS
             })
         }
-    }, [latex])
+    }, [latex, display])
 
     return <>{padding && ' '}<span ref={mathElement}/>{padding && ' '}</>;
 
