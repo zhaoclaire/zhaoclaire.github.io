@@ -168,3 +168,14 @@ a.secondary {
   margin-top: 7vh;
   margin-bottom: 7vh;
 }
+
+.blog {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.clear {
+  margin-top: auto;
+  padding-bottom: 5vh;
+}

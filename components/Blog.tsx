@@ -7,8 +7,8 @@ export default function Blog(props: any) {
     <>
       {props.children}
       <Center height="15vh">
-      <Link as={NextLink} href="/">
-            <Text as='b'>Back Home 🏠</Text>
+        <Link as={NextLink} href="/">
+          <Text as="b">Back Home 🏠</Text>
         </Link>
       </Center>
     </>

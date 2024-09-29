@@ -14,6 +14,8 @@ import Image from "next/image";
 
 import image from "./schematic.png";
 import Reference from "@/components/Reference";
+import Blog from "@/components/Blog";
+import BlogTitle from "@/components/BlogTitle";
 
 export default function VideoPoet() {
   const references = [
@@ -23,10 +25,8 @@ export default function VideoPoet() {
     }
   ]
   return (
-    <main>
-      <Center>
-        <Heading className={style.title}>Paper Reading Notes</Heading>
-      </Center>
+    <Blog>
+      <BlogTitle title="Paper Reading Notes" />
       <Container fontSize="xl" maxW={"container.lg"}>
         <Heading as="h3" size="lg" pb="0.5em">
           Overview
@@ -101,7 +101,6 @@ export default function VideoPoet() {
         losses on 3D consistency.
       </Container>
       <Reference referenceList={references} />
-      <Box height="15vh" />
-    </main>
+    </Blog>
   );
 }
