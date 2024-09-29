@@ -2,35 +2,71 @@
 import Blog from "@/components/Blog";
 import BlogTitle from "@/components/BlogTitle";
 import HeadingLinkable from "@/components/HeadingLinkable";
+import InlineReference from "@/components/InlineReference";
 import Items from "@/components/Items";
 import Math from "@/components/Math";
 import Paragraph from "@/components/Paragraph";
-import Reference from "@/components/Reference";
+import ReadingList from "@/components/ReadingList";
+import Reference, { ReferenceItem } from "@/components/Reference";
 import SectionTitle from "@/components/SectionTitle";
 import { Heading, ListItem, OrderedList, Text } from "@chakra-ui/react";
+import { useState } from "react";
 
+import { references } from "./fokker-plank-references";
 
 export default function FokkerPlanck() {
+  // template code for reading list ________________________________________
+  const [readingList, setReadingList] = useState<ReferenceItem[]>([]);
+  const [idList, setIdList] = useState<number[]>([])
 
+  function readingListHandler(id: number, inReadingList: boolean) {
+    if (inReadingList) {
+      // we must add reference to reading list if it is not present
 
-  const references = [
-    {
-      title:
-        "D. Revuz, M. York, Continuous Martingales and Brownian Motion, Grundlehren der mathematischen Wissenschaften, Third Edition",
-    },
-    {
-      title:
-        "Y. Song et al., Score-Based Generative Modeling through Stochastic Differential Equations",
-      url: "https://arxiv.org/pdf/2011.13456",
-    },
-    {
-      title: "Y. Song et al., Consistency Models",
-      url: "https://arxiv.org/pdf/2303.01469",
-    },
-  ];
+      let present = false;
+      readingList.forEach((reference) => {
+        if (reference.id == id) {
+          present = true;
+        }
+      });
+
+      if (!present) {
+        // search for ref of given id
+
+        let ref: ReferenceItem;
+        references.forEach((reference) => {
+          if (reference.id == id) {
+            ref = reference;
+            setReadingList([...readingList, ref]);
+            setIdList([...idList, id])
+            return;
+          }
+        });
+      }
+    } else {
+      // remove reference
+      setReadingList(readingList.filter((reference) => reference.id !== id));
+      setIdList(idList.filter((n) => n !== id))
+    }
+  }
+  // ________________________________________________________________________
+
+  let dummyRef: ReferenceItem = {
+    title:
+      "Y. Song et al., Score-Based Generative Modeling through Stochastic Differential Equations",
+    url: "https://arxiv.org/pdf/2011.13456",
+    id: 4,
+    annotation: "fundamental paper",
+  };
+  let dummyRef2: ReferenceItem = {
+    title:
+      "2Y. Song et al., Score-Based Generative Modeling through Stochastic Differential Equations",
+    url: "https://arxiv.org/pdf/2011.13456",
+    id: 3,
+    annotation: "fundamental paper2",
+  };
   return (
-    <Blog>
-      <BlogTitle title="Exposition" />
+    <Blog readingList={readingList}>
       <SectionTitle title="Overview" />
       <Paragraph>
         The probability flow ordinary differential equation arises in the
@@ -39,6 +75,21 @@ export default function FokkerPlanck() {
         This equation arises in a more general setting, and is often known there
         as the Fokker-Planck equation. This exposition is devoted to sketching
         out this generalization without heavy proofs.
+        <InlineReference
+          reference={dummyRef}
+          readingList={readingList}
+          readingListHandler={readingListHandler}
+        ></InlineReference>
+          Duplicate <InlineReference
+          reference={dummyRef}
+          readingList={readingList}
+          readingListHandler={readingListHandler}
+        ></InlineReference>
+        <InlineReference
+          reference={dummyRef2}
+          readingList={readingList}
+          readingListHandler={readingListHandler}
+        ></InlineReference>
       </Paragraph>
       <SectionTitle title="Feller Processes" />
       <Paragraph>
@@ -74,7 +125,7 @@ export default function FokkerPlanck() {
           display={true}
         />
       </Paragraph>
-      <Reference referenceList={references} />
+      <Reference referenceList={references} idList={idList}/>
     </Blog>
   );
 }
