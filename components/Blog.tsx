@@ -24,14 +24,18 @@ import styles from "./Blog.module.css";
 import { ReferenceItem } from "./Reference";
 import { ExternalLinkIcon, LinkIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/navigation";
+import Reference from "./Reference";
+
+import { ReactElement, ReactNode, cloneElement } from "react";
+import { render } from "katex";
 
 export default function Blog({
   title,
-  children,
-  readingList = [],
+  renderChildren,
+  referenceList = [],
 }: {
-  children: any;
-  readingList?: ReferenceItem[];
+  renderChildren: any;
+  referenceList?: ReferenceItem[];
   title?: any;
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -56,6 +60,48 @@ export default function Blog({
     );
   }
 
+  const [readingList, setReadingList] = useState<ReferenceItem[]>([]);
+  const [idList, setIdList] = useState<number[]>([]);
+
+  function readingListHandler(id: number, inReadingList: boolean) {
+    if (inReadingList) {
+      // we must add reference to reading list if it is not present
+
+      let present = false;
+      readingList.forEach((reference) => {
+        if (reference.id == id) {
+          present = true;
+        }
+      });
+
+      if (!present) {
+        // search for ref of given id
+
+        let ref: ReferenceItem;
+        referenceList.forEach((reference) => {
+          if (reference.id == id) {
+            ref = reference;
+            setReadingList([...readingList, ref]);
+            setIdList([...idList, id]);
+            return;
+          }
+        });
+      }
+    } else {
+      // remove reference
+      setReadingList(readingList.filter((reference) => reference.id !== id));
+      setIdList(idList.filter((n) => n !== id));
+    }
+  }
+
+  function openAllLinks() {
+    for (const ref of readingList) {
+      if (ref.url) {
+        window.open(ref.url, "_blank");
+      }
+    }
+  }
+
   return (
     <>
       <Center flexDirection={"column"}>
@@ -66,7 +112,11 @@ export default function Blog({
           <NavBar />
         </Box>
       </Center>
-      {children}
+      {renderChildren(readingList, readingListHandler)}
+      {/* {cloneElement(children, { readingList, readingListHandler })} */}
+      {referenceList.length > 0 && (
+        <Reference referenceList={referenceList} idList={idList} />
+      )}
       <Center height="20vh">
         <NavBar />
       </Center>
@@ -90,6 +140,18 @@ export default function Blog({
               </Container>
             ))}
           </DrawerBody>
+          <DrawerFooter borderTopWidth="1px">
+            <Button variant="outline" mr={3} onClick={onClose}>
+              Cancel
+            </Button>
+            <Button
+              colorScheme="blue"
+              onClick={openAllLinks}
+              isDisabled={readingList.length == 0}
+            >
+              Open All Links
+            </Button>
+          </DrawerFooter>
         </DrawerContent>
       </Drawer>
     </>

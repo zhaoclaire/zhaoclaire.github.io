@@ -1,20 +1,26 @@
+"use client";
 import Blog from "@/components/Blog";
-import BlogTitle from "@/components/BlogTitle";
-import Items from "@/components/Items";
-import Math from "@/components/Math";
-import Paragraph from "@/components/Paragraph";
-import Reference from "@/components/Reference";
-import SectionTitle from "@/components/SectionTitle";
-import { Container, List, ListItem, OrderedList, Text } from "@chakra-ui/react";
+import { ReferenceItem } from "@/components/Reference";
+
+import Lumiere from "./blog";
 import { references } from "./lumiere-references";
-export default function Lumiere() {
+
+// import references and blog
+
+export default function LumiereBlog() {
+  function renderLumiere(
+    readingList: ReferenceItem[],
+    readingListHandler: any
+  ) {
+    return (
+      <Lumiere
+        readingList={readingList}
+        readingListHandler={readingListHandler}
+      />
+    );
+  }
 
   return (
-    <Blog>
-      <SectionTitle title="Overview" />
-      <Paragraph>Lumiere</Paragraph>
-
-      <Reference referenceList={references} />
-    </Blog>
+    <Blog referenceList={references} renderChildren={renderLumiere}></Blog>
   );
 }

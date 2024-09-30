@@ -1,20 +1,25 @@
+"use client";
 import Blog from "@/components/Blog";
-import BlogTitle from "@/components/BlogTitle";
-import Items from "@/components/Items";
-import Math from "@/components/Math";
-import Paragraph from "@/components/Paragraph";
-import Reference from "@/components/Reference";
-import SectionTitle from "@/components/SectionTitle";
-import { Container, List, ListItem, OrderedList, Text } from "@chakra-ui/react";
+import { ReferenceItem } from "@/components/Reference";
 
+// import references and blog
 import { references } from "./control-net-references";
-export default function ControlNet() {
+import ControlNet from "./blog";
+
+export default function ControlNetBlog() {
+  function renderControlNet(
+    readingList: ReferenceItem[],
+    readingListHandler: any
+  ) {
+    return (
+      <ControlNet
+        readingList={readingList}
+        readingListHandler={readingListHandler}
+      />
+    );
+  }
 
   return (
-    <Blog>
-      <SectionTitle title="Overview" />
-      <Paragraph>Control Net</Paragraph>
-      <Reference referenceList={references} />
-    </Blog>
+    <Blog referenceList={references} renderChildren={renderControlNet}></Blog>
   );
 }

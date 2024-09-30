@@ -1,5 +1,5 @@
 "use client";
-import { Heading, Text, Container, Link } from "@chakra-ui/react";
+import { Heading, Text, Container, Link, Tooltip } from "@chakra-ui/react";
 import NextLink from "next/link";
 
 export interface ReferenceItem {
@@ -14,7 +14,7 @@ export default function Reference({
   idList,
 }: {
   referenceList: ReferenceItem[];
-  idList?: number[]
+  idList?: number[];
 }) {
   return (
     <>
@@ -24,10 +24,10 @@ export default function Reference({
         </Heading>
         {referenceList.map((reference, index) => (
           <div key={index}>
-            {1 + index}. {idList?.includes(reference.id) && '(In TODO)'}<span>&nbsp;</span>
+            {1 + index}. <span>&nbsp;</span>
             {reference.url ? (
               <Link as={NextLink} href={reference.url} isExternal>
-                {reference.title}
+                {reference.title} {idList?.includes(reference.id) && "📚"}
               </Link>
             ) : (
               <Text as={"span"}>{reference.title}</Text>
