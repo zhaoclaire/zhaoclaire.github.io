@@ -3,7 +3,7 @@ import { Heading, Text, Container, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
 
 export interface ReferenceItem {
-  id?: number;
+  id: number;
   title: string;
   url?: string;
   annotation?: any;
@@ -14,7 +14,7 @@ export default function Reference({
   idList,
 }: {
   referenceList: ReferenceItem[];
-  idList?: ReferenceItem[]
+  idList?: number[]
 }) {
   return (
     <>

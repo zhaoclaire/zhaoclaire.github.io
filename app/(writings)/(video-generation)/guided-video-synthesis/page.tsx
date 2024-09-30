@@ -8,16 +8,11 @@ import SectionTitle from "@/components/SectionTitle";
 import { Container, List, ListItem, OrderedList, Text } from "@chakra-ui/react";
 import { title } from "process";
 
+import { references } from "./guided-video-synthesis-references";
 export default function GuidedVideoSynthesis() {
-  const references = [
-    {
-      title: "Structure and Content-Guided Video Synthesis with Diffusion Models",
-      url: 'https://arxiv.org/pdf/2302.03011'
-    }
-  ];
+
   return (
     <Blog>
-      <BlogTitle title="Paper Reading Notes" />
       <SectionTitle title="Overview" />
       <Paragraph>Guided video synthesis.</Paragraph>
 

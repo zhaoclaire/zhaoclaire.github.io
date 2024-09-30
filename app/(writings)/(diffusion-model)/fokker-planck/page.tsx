@@ -51,14 +51,14 @@ export default function FokkerPlanck() {
   }
   // ________________________________________________________________________
 
-  let dummyRef: ReferenceItem = {
+  const dummyRef: ReferenceItem = {
     title:
       "Y. Song et al., Score-Based Generative Modeling through Stochastic Differential Equations",
     url: "https://arxiv.org/pdf/2011.13456",
     id: 4,
     annotation: "fundamental paper",
   };
-  let dummyRef2: ReferenceItem = {
+  const dummyRef2: ReferenceItem = {
     title:
       "2Y. Song et al., Score-Based Generative Modeling through Stochastic Differential Equations",
     url: "https://arxiv.org/pdf/2011.13456",
@@ -90,6 +90,7 @@ export default function FokkerPlanck() {
           readingList={readingList}
           readingListHandler={readingListHandler}
         ></InlineReference>
+        <HeadingLinkable id='hello'>hello</HeadingLinkable>
       </Paragraph>
       <SectionTitle title="Feller Processes" />
       <Paragraph>

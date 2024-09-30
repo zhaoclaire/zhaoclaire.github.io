@@ -53,7 +53,7 @@ export default function InlineReference({
 
   const [status, setStatus] = useState(inReadingList);
 
-  useEffect(() => setStatus(inReadingList), [readingList]);
+  useEffect(() => setStatus(inReadingList), [inReadingList]);
 
   return (
     <>

@@ -16,18 +16,11 @@ import {
   Highlight,
 } from "@chakra-ui/react";
 import { title } from "process";
-
+import { references } from "./animate-diff-references";
 export default function GuidedVideoSynthesis() {
-  const references = [
-    {
-      title:
-        "AnimateDiff: Animate Your Personalized Text-to-Image Diffusion Models without Specific Tuning",
-      url: "https://animatediff.github.io",
-    },
-  ];
+
   return (
     <Blog>
-      <BlogTitle title="Paper Reading Notes" />
       <SectionTitle title="Overview" />
       <Paragraph>
         <PopUp displayText="AnimateDiff" modalTitle="main paper">

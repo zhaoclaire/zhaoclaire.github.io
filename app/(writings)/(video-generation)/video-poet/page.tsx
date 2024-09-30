@@ -17,16 +17,10 @@ import Reference from "@/components/Reference";
 import Blog from "@/components/Blog";
 import BlogTitle from "@/components/BlogTitle";
 
+import { references } from "./video-poet-references";
 export default function VideoPoet() {
-  const references = [
-    {
-      title: 'VideoPoet: A Large Language Model for Zero-Shot Video Generation',
-      url: 'https://arxiv.org/pdf/2312.14125',
-    }
-  ]
   return (
     <Blog>
-      <BlogTitle title="Paper Reading Notes" />
       <Container fontSize="xl" maxW={"container.lg"}>
         <Heading as="h3" size="lg" pb="0.5em">
           Overview

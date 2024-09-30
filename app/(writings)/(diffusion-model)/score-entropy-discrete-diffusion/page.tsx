@@ -5,33 +5,11 @@ import Paragraph from "@/components/Paragraph";
 import Reference from "@/components/Reference";
 import SectionTitle from "@/components/SectionTitle";
 import { Text } from "@chakra-ui/react";
-
+import { references } from "./score-entropy-discrete-diffusion-references";
 export default function SEDD() {
-  const references = [
-    {
-      title: "Main Paper: Discrete Diffusion Modeling by Estimating the Ratios of the Data Distribution",
-      url: 'https://arxiv.org/pdf/2310.16834'
-    },
-    {
-      title: "Authors's Blog: Language Modeling by Estimating the Ratios of the Data Distribution, Accessed 21 Sept 2024",
-      url: 'https://aaronlou.com/blog/2024/discrete-diffusion'
-    },
-    {
-      title: "Score-based Continuous-time Discrete Diffusion Models",
-      url: 'https://arxiv.org/pdf/2211.16750'
-    },
-    {
-      title: "Estimation of non-normalized statistical models by score matching",
-      url: 'https://jmlr.org/papers/volume6/hyvarinen05a/hyvarinen05a.pdf'
-    },
-    {
-      title: "Concrete Score Matching: Generalized Score Matching for Discrete Data",
-      url: 'https://arxiv.org/pdf/2211.00802'
-    },
-  ];
+
   return (
     <Blog>
-      <BlogTitle />
       <SectionTitle title="Overview" />
       <Paragraph>
         This work is what one may call diffusion language model, an alternative

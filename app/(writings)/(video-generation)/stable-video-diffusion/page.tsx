@@ -12,17 +12,11 @@ import {
 } from "@chakra-ui/react";
 import Blog from "@/components/Blog";
 import BlogTitle from "@/components/BlogTitle";
-
+import { references } from "./stable-video-diffusion-references";
 export default function VideoPoet() {
-  const references = [
-    {
-      title: 'Stable Video Diffusion: Scaling Latent Video Diffusion Models to Large Datasets',
-      url: 'https://arxiv.org/pdf/2311.15127'
-    }
-  ]
+
   return (
     <Blog>
-      <BlogTitle/>
       <Container fontSize="xl" maxW={"container.lg"}>
         <Heading as="h3" size="lg" pb="0.5em">
           Overview

@@ -14,6 +14,7 @@ import {
   DrawerContent,
   DrawerCloseButton,
   Container,
+  Box,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useState } from "react";
@@ -22,6 +23,7 @@ import BlogTitle from "./BlogTitle";
 import styles from "./Blog.module.css";
 import { ReferenceItem } from "./Reference";
 import { ExternalLinkIcon, LinkIcon } from "@chakra-ui/icons";
+import { useRouter } from "next/navigation";
 
 export default function Blog({
   title,
@@ -33,6 +35,26 @@ export default function Blog({
   title?: any;
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
+
+  // Useful API for opening all links in reading list
+  // window.open('https://google.com', '_blank');
+
+  function NavBar() {
+    return (
+      <SimpleGrid columns={2} spacing={10}>
+        <Button variant={"outline"} onClick={() => router.push("/")}>
+          🏠 Home
+        </Button>
+        <Button variant={"outline"} onClick={() => onOpen()}>
+          <Text as="b">
+            📚 Reading List{" "}
+            {readingList.length < 1 ? "" : `(${readingList.length})`}
+          </Text>
+        </Button>
+      </SimpleGrid>
+    );
+  }
 
   return (
     <>
@@ -40,31 +62,13 @@ export default function Blog({
         <Heading className={styles.heading}>
           {title ? title : "Paper Reading Notes"}
         </Heading>
-        <SimpleGrid columns={2} spacing={10}>
-          <Link as={NextLink} href="/">
-            <Text as="b">🏠 Home</Text>
-          </Link>
-          <Button variant={"outline"} onClick={() => onOpen()}>
-            <Text as="b">
-              📚 Reading List{" "}
-              {readingList.length < 1 ? "" : `(${readingList.length})`}
-            </Text>
-          </Button>
-        </SimpleGrid>
+        <Box mt={"2vh"}>
+          <NavBar />
+        </Box>
       </Center>
       {children}
-      <Center height="15vh">
-        <SimpleGrid columns={2} spacing={10}>
-          <Link as={NextLink} href="/">
-            <Text as="b">🏠 Home</Text>
-          </Link>
-          <Button variant={"outline"} onClick={() => onOpen()}>
-            <Text as="b">
-              📚 Reading List{" "}
-              {readingList.length < 1 ? "" : `(${readingList.length})`}
-            </Text>
-          </Button>
-        </SimpleGrid>
+      <Center height="20vh">
+        <NavBar />
       </Center>
 
       <Drawer onClose={onClose} isOpen={isOpen} size={"lg"}>
