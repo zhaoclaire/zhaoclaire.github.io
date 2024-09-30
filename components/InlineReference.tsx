@@ -13,11 +13,9 @@ import {
   PopoverFooter,
   PopoverArrow,
   PopoverCloseButton,
-  PopoverAnchor,
-  Text,
 } from "@chakra-ui/react";
 
-import { ViewIcon, ExternalLinkIcon, LinkIcon } from "@chakra-ui/icons";
+import { LinkIcon } from "@chakra-ui/icons";
 import { ReferenceItem } from "./Reference";
 import { useEffect, useState } from "react";
 

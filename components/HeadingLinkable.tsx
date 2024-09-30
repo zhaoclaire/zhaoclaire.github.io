@@ -1,5 +1,4 @@
 import { Heading, Button, Box, Container } from "@chakra-ui/react";
-
 import { useState } from "react";
 import { CopyIcon } from "@chakra-ui/icons";
 import { useToast } from "@chakra-ui/react";

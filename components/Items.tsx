@@ -1,5 +1,12 @@
 "use client";
-import { Container, ListItem, OrderedList, UnorderedList } from "@chakra-ui/react";
+import {
+  Container,
+  ListItem,
+  OrderedList,
+  UnorderedList,
+} from "@chakra-ui/react";
+
+
 export default function Items({
   list,
   isOrdered = false,
@@ -9,14 +16,13 @@ export default function Items({
 }) {
   if (!isOrdered) {
     return (
-
       <Container fontSize="xl" maxW={"container.lg"} mt="1em">
         <UnorderedList pl="2em" pb="1em" pt="1em">
           {list.map((item, index) => (
             <ListItem key={index}>{item}</ListItem>
           ))}
         </UnorderedList>
-        </Container>
+      </Container>
     );
   }
 
@@ -27,6 +33,6 @@ export default function Items({
           <ListItem key={index}>{item}</ListItem>
         ))}
       </OrderedList>
-      </Container>
+    </Container>
   );
 }

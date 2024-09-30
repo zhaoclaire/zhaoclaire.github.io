@@ -1,5 +1,5 @@
 "use client";
-import { Heading, Text, Container, Link, Tooltip } from "@chakra-ui/react";
+import { Heading, Text, Container, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
 
 export interface ReferenceItem {

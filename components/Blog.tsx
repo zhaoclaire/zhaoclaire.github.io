@@ -15,19 +15,18 @@ import {
   DrawerCloseButton,
   Container,
   Box,
+  Tooltip,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useState } from "react";
 import { useDisclosure } from "@chakra-ui/react";
-import BlogTitle from "./BlogTitle";
 import styles from "./Blog.module.css";
 import { ReferenceItem } from "./Reference";
-import { ExternalLinkIcon, LinkIcon } from "@chakra-ui/icons";
+import { LinkIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/navigation";
 import Reference from "./Reference";
 
-import { ReactElement, ReactNode, cloneElement } from "react";
-import { render } from "katex";
+import { QuestionOutlineIcon } from "@chakra-ui/icons";
 
 export default function Blog({
   title,
@@ -151,6 +150,12 @@ export default function Blog({
             >
               Open All Links
             </Button>
+            <Tooltip
+              label="(1) Enable pop-up (2) Reading list is not saved when navigating away from this blog page."
+              fontSize="md"
+            >
+              <QuestionOutlineIcon ml={5} />
+            </Tooltip>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

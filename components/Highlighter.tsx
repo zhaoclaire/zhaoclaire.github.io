@@ -23,10 +23,7 @@ export default function Highlighter({
   } else {
     return (
       <>
-        <Highlight
-          query={children}
-          styles={{ px: "1", py: "1", bg: colour }}
-        >
+        <Highlight query={children} styles={{ px: "1", py: "1", bg: colour }}>
           {children}
         </Highlight>
       </>

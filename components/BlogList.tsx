@@ -1,8 +1,6 @@
 "use client";
 
 import { Container, Badge, Link, VStack } from "@chakra-ui/react";
-import { read } from "fs";
-
 import NextLink from "next/link";
 import { useState, useEffect } from "react";
 
