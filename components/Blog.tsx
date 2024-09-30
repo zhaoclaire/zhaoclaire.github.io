@@ -151,7 +151,7 @@ export default function Blog({
               Open All Links
             </Button>
             <Tooltip
-              label="(1) Enable pop-up (2) Reading list is not saved when navigating away from this blog page."
+              label="(1) Enable pop-up's. (2) Reading list is not saved when navigating away from this blog page."
               fontSize="md"
             >
               <QuestionOutlineIcon ml={5} />

@@ -44,12 +44,14 @@ export default function Home() {
           <Heading>Blogs</Heading>
         </Center>
         <BlogList posts={blogPosts} />
-        <Center height="3vh" className={styles.clear}>
+        <Center height="15vh" className={styles.clear}>
           {len > 0 && (
             <Button
               variant="link"
               colorScheme={"teal"}
               onClick={clearViewedPapers}
+              pt={'5vh'}
+              pb={'1vh'}
             >
               Reset {len} Viewed {len == 1 ? "Blog" : "Blogs"}
             </Button>
