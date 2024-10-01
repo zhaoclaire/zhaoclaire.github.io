@@ -150,13 +150,13 @@ export default function FokkerPlanck({
         ></InlineReference>
       </Paragraph>
       <Paragraph>
-        The representation of semigroups specialized to Hilbert spaces are also
-        interesting to describe, for example if the semigroup consists of normal
-        operators satisfying the condition condition (iii), then for a normal
+        The representation of semigroups specialized to Hilbert space is also
+        interesting to describe: if the semigroup consists of normal operators
+        satisfying the condition condition (iii), then for a normal
         infinitesimal generator <Math latex="A" /> we have{" "}
         <Math latex="Q_t=e^{tA}" padding={false} />. Similarly, if the semigroup
-        satisfying (iii) consists of unitary operators, then we have a
-        representation <Math latex="Q_t=e^{itS}" display={true} /> for a
+        satisfying (iii) consists of unitary operators, then we have
+        representation <Math latex="Q_t=e^{itS}" display={true} /> for some
         self-adjoint operator <Math latex="S" padding={false} />.
       </Paragraph>
       <SectionTitle title="Hille-Yosida Theorem" />
@@ -185,6 +185,96 @@ export default function FokkerPlanck({
           readingList={readingList}
           readingListHandler={readingListHandler}
         ></InlineReference>
+      </Paragraph>
+      <SectionTitle title="Feller Semigroup" />
+      <Paragraph>
+        The starting point for the study of Feller processes is to regard the{" "}
+        <Highlighter>transition function (t.f.)</Highlighter> of Markov
+        processes as operators on a function space. Concretely, let{" "}
+        <Math latex="P_{s,t}" /> be a (possibly time dependent) t.f. and let{" "}
+        <Math latex="f" />
+        be a function from a suitable function space, then the integral
+        <Math display={true} latex="Tf(x) = \int P_{s,t}(x, dy) f(y)" />
+        defines an operator. In general, the{" "}
+        <Highlighter>Chapman-Kolmogorov relations</Highlighter> is{" "}
+        <Math
+          latex="\int P_{s,t}(x,dy)P_{t,v}(y, A)=P_{s,v}(x, A)"
+          display={true}
+        />{" "}
+        for any <Math latex="0\leq s< t < v" padding={false} />. When the t.f.
+        <Math latex="P_{s,t}" /> depends on <Math latex="s,\,t" /> through the
+        difference <Math latex="s-t" /> alone, then we write{" "}
+        <Math latex="P_t" /> for
+        <Math latex="P_{0,t}" /> and call it a{" "}
+        <Highlighter>homogenenous transition function</Highlighter>. In this
+        situation the Chapman-Kolmogorov relations turns into a form
+        <Math
+          latex=" P_{t+s}(x,A)=\int P_{s}(x,dy)P_{t}(y, A)"
+          display={true}
+        />
+        that reminds us of the semigroup relation (ii){" "}
+        <Math latex="T_{t+s}=T_t\circ T_s" display={true} />.
+      </Paragraph>
+      <Paragraph>
+        To make precise the semigroup appearence, let <Math latex="E" /> be a
+        locally compact space with countable base (abbrev. LCCB space), and let{" "}
+        <Math latex="C_0=C_0(E)" /> be the set of real valued continuous
+        functions <Math latex="E" /> that vanishes at infinity. Recall that a{" "}
+        <Text as="b">positive operator</Text> maps positive functions to
+        positive functions. A <Highlighter>Feller semigroup</Highlighter> on{" "}
+        <Math latex="C_0(E)" />
+        is a family <Math latex="\{T_t\}_{t\geq 0}" /> of positive linear
+        operators on <Math latex="C_0(E)" /> such that
+        <OrderedList pl="2em" pb="1em" pt="1em">
+          <ListItem>
+            <Math latex="T_0=I" /> and <Math latex="||T_t||\leq 1" /> for every{" "}
+            <Math latex="t" padding={false} />.
+          </ListItem>
+          <ListItem>
+            <Math latex="T_{t+s}=T_t\circ T_s" /> for any pair{" "}
+            <Math latex="s,t" padding={false} />.
+          </ListItem>
+          <ListItem>
+            <Math latex="\lim_{\downarrow 0} ||T_tf - f|| = 0" /> for every{" "}
+            <Math latex="f\in C_0(E)." padding={false} />
+          </ListItem>
+        </OrderedList>
+        Each Feller semigroup on <Math latex="E" /> gives rises to a unique
+        homogenenous transition function <Math latex="\{P_t\}_{t\geq 0}" /> such
+        that
+        <Math latex="T_tf(x)=\int P_t(x,dy)f(y)" display={true} /> for every{" "}
+        <Math latex="f\in C_0" /> and every{" "}
+        <Math latex="x\in E" display={false} />. We call the transition
+        associated to the Feller semigroup a{" "}
+        <Highlighter>Feller transition function</Highlighter>. The necessary and
+        sufficient condition for a t.f. to be a Feller t.f. is as follows (proof
+        in
+        <InlineReference
+          reference={references[2]}
+          readingList={readingList}
+          readingListHandler={readingListHandler}
+        ></InlineReference>
+        )
+        <OrderedList pl="2em" pb="1em" pt="1em">
+          <ListItem>
+            <Math latex="P_t C_0\subset C_0" />
+          </ListItem>
+          <ListItem>
+            <Math latex="\lim_{t\downarrow 0} P_t f(x)=f(x)" /> for all{" "}
+            <Math latex="f\in C_0" /> and{" "}
+            <Math latex="x\in E" padding={false} />.
+          </ListItem>
+        </OrderedList>
+        The notation <Math latex="P_tf=\int P_t(x,dy)f(y)" /> and{" "}
+        <Math
+          latex="P_t C_0 = \left\{\,P_tf: \, f\in C_0\, \right\}"
+          display={!true}
+          padding={!true}
+        />
+      </Paragraph>
+      <Paragraph>
+        A <Highlighter isRound={!true}>Feller process</Highlighter> is a Markov
+        process having a Feller transition function.
       </Paragraph>
     </>
   );
