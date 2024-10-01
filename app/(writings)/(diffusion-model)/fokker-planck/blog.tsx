@@ -1,11 +1,14 @@
 "use client";
 import HeadingLinkable from "@/components/HeadingLinkable";
+import Highlighter from "@/components/Highlighter";
 import InlineReference from "@/components/InlineReference";
 import Math from "@/components/Math";
 import Paragraph from "@/components/Paragraph";
 import { ReferenceItem } from "@/components/Reference";
 import SectionTitle from "@/components/SectionTitle";
-import { ListItem, OrderedList, Text } from "@chakra-ui/react";
+import { List, ListItem, OrderedList, Text } from "@chakra-ui/react";
+import { tree } from "next/dist/build/templates/app-page";
+import { references } from "./fokker-planck-references";
 
 export default function FokkerPlanck({
   readingList,
@@ -14,81 +17,174 @@ export default function FokkerPlanck({
   readingList: ReferenceItem[];
   readingListHandler: any;
 }) {
-  const dummyRef: ReferenceItem = {
-    id: 1,
-    title:
-      "D. Revuz, M. York, Continuous Martingales and Brownian Motion, Grundlehren der mathematischen Wissenschaften, Third Edition",
-    url: "https://link.springer.com/book/10.1007/978-3-662-06400-9",
-  };
-
-  const dummyRef2: ReferenceItem = {
-    id: 2,
-    title: "Y. Song et al., Consistency Models",
-    url: "https://arxiv.org/pdf/2303.01469",
-    annotation: "consistency model paper",
-  };
-
   return (
     <>
-      <SectionTitle title="Overview" />
+      <SectionTitle title="Semigroups" />
       <Paragraph>
-        The probability flow ordinary differential equation arises in the
-        foundational paper on score-based diffusion model, describing the time
-        evolution of the density function associated with the diffusion process.
-        This equation arises in a more general setting, and is often known there
-        as the Fokker-Planck equation. This exposition is devoted to sketching
-        out this generalization without heavy proofs.
-        <InlineReference
-          reference={dummyRef}
-          readingList={readingList}
-          readingListHandler={readingListHandler}
-        ></InlineReference>
-        Duplicate{" "}
-        <InlineReference
-          reference={dummyRef}
-          readingList={readingList}
-          readingListHandler={readingListHandler}
-        ></InlineReference>
-        <InlineReference
-          reference={dummyRef2}
-          readingList={readingList}
-          readingListHandler={readingListHandler}
-        ></InlineReference>
-        <HeadingLinkable id="hello">hello</HeadingLinkable>
-      </Paragraph>
-      <SectionTitle title="Feller Processes" />
-      <Paragraph>
-        The space of continuous functions on an LCCB space E that vanishes at
-        infinity will be denoted
-        <Math latex="C_0(E)" />. A <Text as="b">Feller semi-group</Text> on{" "}
-        <Math latex="C_0(E)" /> is a family <Math latex="T_t, \, t\geq 0" /> of
-        positive linear operators on <Math latex="C_0(E)" /> such that
-        <OrderedList pl="2em" pb="1em" pt="1em">
+        Let <Math latex="X" /> be a Banch space. Suppose for every{" "}
+        <Math latex="t\geq 0" /> we associate a bounded linear mapping (also
+        called an operator) <Math display={true} latex="Q_t: X\rightarrow X" />
+        so as to have
+        <OrderedList pl="2em" pb="1em" pt="1em" styleType="lower-roman">
           <ListItem>
-            <Math latex="T_0=Id" /> and <Math latex="||T_t||\leq 1" /> for every{" "}
-            <Math latex="t" padding={false} />.
+            <Math latex="Q_0=I" /> is the identity
           </ListItem>
           <ListItem>
-            <Math latex="T_{t+s}=T_t\circ T_s" /> for any pair{" "}
-            <Math latex="s,t" padding={false} />.
+            <Math latex="Q_{t+s}=Q_t\circ Q_s" />
+            for all <Math latex="s,\,t\geq 0" />
           </ListItem>
           <ListItem>
-            <Math latex="\lim_{\downarrow 0} ||T_tf - f|| = 0" /> for every{" "}
-            <Math latex="f\in C_0(E)." padding={false} />
+            <Math latex="\lim_{t\downarrow 0} ||Q_t(x)-x||=0" /> for every{" "}
+            <Math latex="x\in X" />
           </ListItem>
         </OrderedList>
+        If (i) and (ii) hold, the family of operators{" "}
+        <Math latex="\{Q_t\}_{t\geq 0}" /> is called a{" "}
+        <Highlighter isRound={false}>semigroup</Highlighter> of a single
+        parameter. In view of (ii) we shall later see that under favourable
+        circumstances it is possible to represent the operators in exponential
+        form <Math display={true} latex="Q_t=\exp(At)" />
+        for an operator <Math latex="A" />. To begin this investigation, for
+        every
+        <Math latex="\varepsilon >0" /> we associate to{" "}
+        <Math latex="Q_\varepsilon" />
+        the operator
+        <Math
+          display={true}
+          latex="A_\varepsilon x=\frac{1}{\varepsilon}\left[Q_\varepsilon (x) - x\right]"
+        />
+        for every <Math latex="x\in X" />. Define the operator{" "}
+        <Math
+          display={true}
+          latex="Ax=\lim_{\varepsilon\downarrow 0} A_\varepsilon x"
+        />
+        whenever the limit exists (in topology generated by the norm of the
+        Banach space <Math latex="X" padding={false} />
+        ), in which case we say <Math latex="x\in \mathscr{D}_A" /> is in the
+        domain of <Math latex="A" />. Observe that{" "}
+        <Math latex="\mathscr{D}_A" /> is a vector subspace of{" "}
+        <Math latex="X" /> and <Math latex="A" /> is a linear operator. The
+        operator <Math latex="A" /> is called the{" "}
+        <Highlighter isRound={false}>infinitesimal generator</Highlighter>
+        of the semigroup <Math latex="\{Q_t\}" />.
       </Paragraph>
-      <SectionTitle title="Infinitesimal Generator" />
+      <SectionTitle title="Exponential Representation of Semigroups" />
       <Paragraph>
+        We can say several things about the semigroup <Math latex="\{Q_t\}" />{" "}
+        satisfying (1)-(3) above:
+        <OrderedList pl="2em" pb="1em" pt="1em">
+          <ListItem>
+            There are constants <Math latex="C,\,\gamma" /> such that
+            <Math latex="||Q_t||\leq Ce^{\gamma t}" display={true} />
+            for every <Math latex="t\geq 0" padding={false} />.
+          </ListItem>
+          <ListItem>
+            <Math latex="t\mapsto Q_t(x)" /> is a continuous map of{" "}
+            <Math latex="[0,\infty)" /> into
+            <Math latex="X" /> for every <Math latex="x\in X" padding={false} />
+            .
+          </ListItem>
+          <ListItem>
+            <Math latex="\mathscr{D}_A" /> is dense in <Math latex="X" /> and{" "}
+            <Math latex="A" /> is closed.
+          </ListItem>
+          <ListItem>
+            The differential equation{" "}
+            <Math latex="\frac{d}{dt}Q_t(x)=(A\circ Q_t)(x)=(Q_t\circ A)(x)" />
+            holds for every <Math latex="x\in \mathscr{D}_A" padding={false} />.
+          </ListItem>
+          <ListItem>
+            For every <Math latex="x\in X" padding={true} />{" "}
+            <Math
+              latex="Q_t(x)=\lim_{\varepsilon\downarrow 0}e^{t A_\varepsilon}(x)"
+              display={true}
+            />
+            the convergence is uniform on every compact subset of{" "}
+            <Math latex="[0,\infty)" padding={false} />.
+          </ListItem>
+          <ListItem>
+            If <Math latex="\lambda \in \mathbb{C}" /> with real part{" "}
+            <Math latex="\text{Re}\, \lambda > \gamma" />, then the integral
+            <Math
+              display={true}
+              latex="R_\lambda (x) = \int_0^\infty e^{-\lambda t}Q_t(x)\, dt"
+            />
+            defines a bounded linear operator{" "}
+            <Math latex="R_\lambda: X\rightarrow X" /> called the{" "}
+            <Highlighter isRound={false}>resolvant</Highlighter> of the
+            semigroup <Math latex="\{Q_t\}" /> whose range is{" "}
+            <Math latex="x\in \mathscr{D}_A" />, and which is the inverse of{" "}
+            <Math latex="\lambda I - A" padding={false} />.
+          </ListItem>
+        </OrderedList>
+        Proof of (1)-(6) above can be found in Rudin
+        <InlineReference
+          reference={references[0]}
+          readingList={readingList}
+          readingListHandler={readingListHandler}
+        ></InlineReference>
+      </Paragraph>
+      <Paragraph>
+        Property (5) above is almost{" "}
+        <Math display={false} latex="Q_t=\exp(At)" /> which we set out to seek,
+        but under what conditions? The following theorem answers this: any of
+        these three statements imply the other two
+        <OrderedList pl="2em" pb="1em" pt="1em">
+          <ListItem>
+            <Math latex="Q_t=e^{tA}" /> for all{" "}
+            <Math latex="t\geq 0" padding={true} /> where{" "}
+            <Math latex="A: X\rightarrow X" /> is a bounded linear operator.
+          </ListItem>
+          <ListItem>
+            <Math latex="\lim_{\varepsilon \downarrow 0}||Q_\varepsilon - I||=0" />
+          </ListItem>
+          <ListItem>
+            <Math latex="\mathscr{D}_A=X" />
+          </ListItem>
+        </OrderedList>
+        A proof of this theorem can be found in Rudin
+        <InlineReference
+          reference={references[0]}
+          readingList={readingList}
+          readingListHandler={readingListHandler}
+        ></InlineReference>
+      </Paragraph>
+      <Paragraph>
+        The representation of semigroups specialized to Hilbert spaces are also
+        interesting to describe, for example if the semigroup consists of normal
+        operators satisfying the condition condition (iii), then for a normal
+        infinitesimal generator <Math latex="A" /> we have{" "}
+        <Math latex="Q_t=e^{tA}" padding={false} />. Similarly, if the semigroup
+        satisfying (iii) consists of unitary operators, then we have a
+        representation <Math latex="Q_t=e^{itS}" display={true} /> for a
+        self-adjoint operator <Math latex="S" padding={false} />.
+      </Paragraph>
+      <SectionTitle title="Hille-Yosida Theorem" />
+      <Paragraph>
+        Which operators generate semigroups? Conversely, what properties do
+        infinitesimal generators of semigroups have? The answers lies in the{" "}
+        <Highlighter>Hille-Yosida theorem</Highlighter>, which states:
+      </Paragraph>
+      <Paragraph>
+        A densely defined operator <Math latex="A" /> in a Banach space{" "}
+        <Math latex="X" /> is the infinitesimal generator of a semigroup{" "}
+        <Math latex="\{Q_t\}_{t\geq 0}" /> satisfying properties (i)-(iii) above{" "}
+        <Text as="b">if and only if</Text>
+        there are constances <Math latex="C,\, \gamma" /> such that
         <Math
-          latex="Af=\lim_{t\downarrow 0}\frac{1}{t}\left(P_tf - f\right)"
           display={true}
+          latex="||(\lambda I - A)^{-m}||\leq C(\lambda-\gamma)^{-m}"
         />
-        <Math latex="\frac{d}{dt}P_t f = AP_t f = P_tAf" display={true} />
-        <Math
-          latex="\frac{d}{dt}P_t(x,\cdot)  = A^* P_t(x,\cdot)"
-          display={true}
-        />
+        for all <Math latex="\lambda > \gamma" /> and all positive integers{" "}
+        <Math latex="m" padding={false} />.
+      </Paragraph>
+      <Paragraph>
+        A proof of this theorem can be found in Rudin
+        <InlineReference
+          reference={references[0]}
+          readingList={readingList}
+          readingListHandler={readingListHandler}
+        ></InlineReference>
       </Paragraph>
     </>
   );

@@ -67,11 +67,14 @@ export default function InlineReference({
           <PopoverCloseButton />
           <PopoverBody>
             <Box>
-              <Box>{children ? children : reference.annotation}</Box>
+              <Box>{reference.annotation ? reference.annotation : reference.title}</Box>
               {reference.url && (
                 <Link href={reference.url} color={"teal.500"} isExternal>
-                  Paper
-                  <LinkIcon mx="2px" />
+                  <Box>
+                    {" "}
+                    Link
+                    <LinkIcon mx="2px" />
+                  </Box>
                 </Link>
               )}
             </Box>
