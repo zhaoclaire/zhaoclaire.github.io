@@ -189,14 +189,13 @@ export default function FokkerPlanck({
       <SectionTitle title="Feller Semigroup" />
       <Paragraph>
         The starting point for the study of Feller processes is to regard the{" "}
-        <Highlighter>transition function (t.f.)</Highlighter> of Markov
-        processes as operators on a function space. Concretely, let{" "}
-        <Math latex="P_{s,t}" /> be a (possibly time dependent) t.f. and let{" "}
-        <Math latex="f" />
+        <Text as="b">transition function (t.f.)</Text> of Markov processes as
+        operators on a function space. Concretely, let <Math latex="P_{s,t}" />{" "}
+        be a (possibly time dependent) t.f. and let <Math latex="f" />
         be a function from a suitable function space, then the integral
         <Math display={true} latex="Tf(x) = \int P_{s,t}(x, dy) f(y)" />
         defines an operator. In general, the{" "}
-        <Highlighter>Chapman-Kolmogorov relations</Highlighter> is{" "}
+        <Highlighter>Chapman-Kolmogorov relations</Highlighter> are{" "}
         <Math
           latex="\int P_{s,t}(x,dy)P_{t,v}(y, A)=P_{s,v}(x, A)"
           display={true}
@@ -206,8 +205,8 @@ export default function FokkerPlanck({
         difference <Math latex="s-t" /> alone, then we write{" "}
         <Math latex="P_t" /> for
         <Math latex="P_{0,t}" /> and call it a{" "}
-        <Highlighter>homogenenous transition function</Highlighter>. In this
-        situation the Chapman-Kolmogorov relations turns into a form
+        <Text as="b">homogenenous transition function</Text>. In this situation
+        the Chapman-Kolmogorov relations turns into a form
         <Math
           latex=" P_{t+s}(x,A)=\int P_{s}(x,dy)P_{t}(y, A)"
           display={true}
@@ -275,6 +274,67 @@ export default function FokkerPlanck({
       <Paragraph>
         A <Highlighter isRound={!true}>Feller process</Highlighter> is a Markov
         process having a Feller transition function.
+      </Paragraph>
+      <SectionTitle title="Convolution Semigroup" />
+      <Paragraph>
+        An example of Feller semigroups is furnished by{" "}
+        <Text as="b">convolution semigroups</Text>, constructed out from
+        families
+        <Math latex="\{\mu_t\}_{t\geq 0}" /> of probability measures on{" "}
+        <Math latex="\mathbb{R}^d" /> satisfying
+        <OrderedList pl="2em" pb="1em" pt="1em">
+          <ListItem>
+            <Math latex="\mu_t \star \mu_s = \mu_{t+s}" />
+          </ListItem>
+          <ListItem>
+            <Math latex="\lim_{t\downarrow 0}\mu_t = \mu_0" /> in the vague
+            topology.
+          </ListItem>
+        </OrderedList>
+        From this Feller semigroup we can derive a Feller transition function
+        <Math
+          latex="P_t(x, A)=\int_{\mathbb{R}^d} 1_A(x+y)\mu_t(dy)"
+          display={true}
+        />
+        The transition functions of{" "}
+        <Highlighter>d-dimensional Brownian motion</Highlighter>
+        are of this type. For 1-dimensional Brownian motion, the t.f. come from
+        convolotion of probability measures <Math latex="P_t(x, \cdot)" /> given
+        by the densities
+        <Math
+          display={true}
+          latex="g_t(y-x)=\frac{1}{\sqrt{2\pi t}}e^{-(y-x)^2 / 2t}"
+        />
+        If the transition function of a process <Math latex="X" /> is given by a
+        convolution semigroup <Math latex="\{\mu_t\}" />, then{" "}
+        <Math latex="X" />
+        has stationary independent increments. The law of the increment of{" "}
+        <Math latex="X_t-X_s" /> is <Math latex="\mu_{t-s}" padding={false} />.
+        A proof can be found in
+        <InlineReference
+          reference={references[2]}
+          readingList={readingList}
+          readingListHandler={readingListHandler}
+        ></InlineReference>
+        Stationary above means the law of the increment <Math latex="X_t-X_s" />{" "}
+        depends on <Math latex="s" /> and <Math latex="t" /> only through their
+        difference <Math latex="t-s" padding={false} />.
+      </Paragraph>
+      <Paragraph>
+        Conversely if a Feller process has stationary increments, then its
+        transition functions are generated from convolution semigroup with{" "}
+        <Math latex="\lim_{t\downarrow 0}\mu_t = \mu_0" padding={false} />. Such
+        a process is called a <Highlighter>Lévy process</Highlighter>.
+      </Paragraph>
+      <SectionTitle title="Forward Backward Eqautions" />
+      <Paragraph>
+        The abstract results about semigroups and their infinitesimal generators
+        can be applied to the case of Feller processes. In particular we focus
+        on the property that <Math latex="t\mapsto P_t f" /> is differentiable
+        and
+        <Math latex="\frac{d}{dt} P_tf = AP_t f = P_tAf" display={true} />
+        where as above <Math latex="A" /> denotes the infinitesimal generator of
+        the (Feller) semigroup.
       </Paragraph>
     </>
   );
