@@ -1,14 +1,16 @@
 "use client";
 
-import { Container, Badge, Link, VStack } from "@chakra-ui/react";
+import { Container, Badge, Link, VStack, Button } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 interface Post {
   url: string;
   title: string;
   inProgress?: boolean;
   notStarted?: boolean;
+  isNew?: boolean;
 }
 
 export default function BlogList({ posts }: { posts: Post[] }) {
@@ -28,6 +30,7 @@ export default function BlogList({ posts }: { posts: Post[] }) {
     }
   }
 
+  const router = useRouter();
   return (
     <VStack>
       {posts
@@ -42,15 +45,21 @@ export default function BlogList({ posts }: { posts: Post[] }) {
           >
             {" "}
             {seenPostList.includes(index) ? `✅ ` : `${index + 1}. `}
-            <Link as={NextLink} href={post.url}>
-              {post.title}
-            </Link>{" "}
+            {post.isNew ? (
+              <Button variant={"outline"} colorScheme='teal' onClick={() => router.push(post.url)}>
+                {" "}
+                {post.title}
+              </Button>
+            ) : (
+              <Link as={NextLink} href={post.url}>
+                {post.title}
+              </Link>
+            )}{" "}
+            {post.isNew && <Badge colorScheme="green">{"New"}</Badge>}
             {post.inProgress && (
-              <Badge colorScheme="orange">{"In progress"}</Badge>
+              <Badge colorScheme="orange">{"Progress"}</Badge>
             )}
-            {post.notStarted && (
-              <Badge colorScheme="blue">{"Coming soon"}</Badge>
-            )}
+            {post.notStarted && <Badge colorScheme="blue">{"Coming"}</Badge>}
           </Container>
         ))}
     </VStack>

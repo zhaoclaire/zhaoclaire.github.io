@@ -19,6 +19,20 @@ export default function FokkerPlanck({
 }) {
   return (
     <>
+      <SectionTitle title="Overview" />
+      <Paragraph>
+        The <Highlighter>probability flow ordinary differential equation</Highlighter> arises in the
+        foundational paper
+        <InlineReference
+          reference={references[3]}
+          readingList={readingList}
+          readingListHandler={readingListHandler}
+        ></InlineReference>
+        of score-based diffusion model. The ODE can be derived from the
+        Fokker-Planck equation, which we describe in the generality of Feller
+        processes below. 
+      </Paragraph>
+
       <SectionTitle title="Semigroups" />
       <Paragraph>
         Let <Math latex="X" /> be a Banch space. Suppose for every{" "}

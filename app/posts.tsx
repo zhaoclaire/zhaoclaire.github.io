@@ -7,43 +7,43 @@
 
 const blogPosts = [
   {
-    title: "AnimateDiff paper reading.",
+    title: "AnimateDiff",
     url: "/animate-diff",
     notStarted: true,
   },
   {
-    title: "Reading of guided video synthesis paper.",
+    title: "Guided video synthesis",
     url: "/guided-video-synthesis",
     notStarted: true,
   },
   {
-    title: "Reading of the Control Net paper.",
+    title: "Control Net",
     url: "/control-net",
     notStarted: true,
   },
   {
     title:
-      "Reading of the Lumiere paper on video generation by space-time diffusion.",
+      "Lumiere: video generation by space-time diffusion",
     url: "/lumiere",
     notStarted: true,
   },
   {
-    title: "Diffusion Theory: Fokker-Planck Equation",
-    url: "/fokker-planck",
-    inProgress: true,
+    title: "VideoPoet: LLM video generation",
+    url: "/video-poet",
   },
   {
-    title: "Score entropy discrete diffusion models.",
+    title: "Stable video diffusion",
+    url: "/stable-video-diffusion",
+  },
+  {
+    title: "Score entropy discrete diffusion models",
     url: "/score-entropy-discrete-diffusion",
     inProgress: true,
   },
   {
-    title: "Stable video diffusion paper reading.",
-    url: "/stable-video-diffusion",
-  },
-  {
-    title: "Reading of the VideoPoet paper on LLM video generation.",
-    url: "/video-poet",
+    title: "Fokker-Planck Equation and Diffusion Models",
+    url: "/fokker-planck",
+    isNew: true,
   },
 ];
 
