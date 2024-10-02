@@ -332,9 +332,265 @@ export default function FokkerPlanck({
         can be applied to the case of Feller processes. In particular we focus
         on the property that <Math latex="t\mapsto P_t f" /> is differentiable
         and
-        <Math latex="\frac{d}{dt} P_tf = AP_t f = P_tAf" display={true} />
+        <Math latex="\frac{d}{dt} P_tf = P_tAf= AP_t f " display={true} />
         where as above <Math latex="A" /> denotes the infinitesimal generator of
         the (Feller) semigroup.
+      </Paragraph>
+      <Paragraph>
+        We can view <Math latex="P_tAf=\langle P_t, Af\rangle" /> as a pairing
+        of the measure <Math latex="P_t(x,\cdot)" /> and the function{" "}
+        <Math latex="Af(x)" padding={false} />. With this duality in mind we
+        write
+        <Math
+          latex="\langle P_t, Af\rangle=\langle A^* P_t, f\rangle"
+          display={true}
+        />
+        With <Math latex="A^*" /> being the formal adjoint of <Math latex="A" />{" "}
+        we can rewrite
+        <Math latex="\frac{d}{dt} P_tf = P_tAf" display={false} /> as
+        <Math
+          latex="\frac{d}{dt} P_t(x,\cdot) = A^*P_t(x,\cdot)"
+          display={true}
+        />
+        this is called the <Text as="b">forward equation</Text> or the{" "}
+        <Highlighter>Fokker-Planck equation</Highlighter>. The left side appears
+        to involve differentiating a measure, however, given that measures can
+        be expressed in terms of functions (ex. a probability measure is
+        represented by its density function, and moreover absolutely continuous{" "}
+        measure by the so called Radon-Nikodym derivative), the above
+        differential equation makes sense. Analogously, this equation is called
+        the <Text as="b">backwards equation</Text>
+        <Math
+          latex="\frac{d}{dt} P_t(x,\cdot) = AP_t (x,\cdot) "
+          display={true}
+        />
+      </Paragraph>
+      <SectionTitle title="Generator for Brownian Motion" />
+      <Paragraph>
+        Denote by <Math latex="C^2_0=C^2_0(\mathbb{R}^d)" /> the space of twice
+        continuously differentiable functions where the function and its first
+        two derivatives vanish at inifity. Then for Brownian motion in{" "}
+        <Math latex="\mathbb{R}^d" /> started at the origin, the infinitesimal
+        generator is <Math latex="A=\frac{1}{2}\Delta" padding={false} />. In
+        other words{" "}
+        <Math
+          latex="Af=\frac{1}{2}\sum_{i=1}^d \frac{\partial^2f}{\partial x_i^2}"
+          display={true}
+        />
+        It can be shown that for <Math latex="d=1" /> the domain of the operator{" "}
+        <Math latex="\mathscr{D}_A=C_0^2" /> and for
+        <Math latex="d>1" /> <Math latex="\mathscr{D}_A" /> is the proper
+        subspace of <Math latex="C_0" /> functions <Math latex="f" /> such that{" "}
+        <Math latex="\Delta f\in C_0" padding={!true} /> in the sense of
+        distributions (since such functions need not possess second
+        derivatives).
+      </Paragraph>
+      <Paragraph>
+        For Brownian motions, the forward-backward equations are
+        <Math
+          latex="\frac{d}{dt} P_tf = \frac{1}{2}P_t\Delta f= \frac{1}{2}\Delta P_t f "
+          display={true}
+        />
+        this is why the normal density functions <Math latex="g_t" /> defined
+        above and its higher dimensional analogues are{" "}
+        <Text as="b">fundamental solutions</Text> of the{" "}
+        <Highlighter>heat equaiton</Highlighter>{" "}
+        <Math
+          latex="\frac{\partial f}{\partial t}+\frac{1}{2}\Delta f=0"
+          display={true}
+        />
+      </Paragraph>
+      <Paragraph>
+        If <Math latex="B" /> is a <Math latex="d-" padding={false} />
+        dimensional Brownian motion started at the origin, then for a{" "}
+        <Math latex="d\times d" /> matrix <Math latex="\sigma" /> we can define
+        a Markov process starting off origin{" "}
+        <Math latex="X_t=x+\sigma B_t" padding={false} />. The corresponding
+        infinitesimal generator is
+        <Math
+          latex="Af=\frac{1}{2}\sum_{i,j}\gamma_{ij}\partial_{ij} f"
+          display={true}
+        />
+        where <Math latex="\gamma=\sigma\sigma^t" padding={false} />.
+      </Paragraph>
+      <Paragraph>
+        Proofs can be found in
+        <InlineReference
+          reference={references[2]}
+          readingList={readingList}
+          readingListHandler={readingListHandler}
+        ></InlineReference>
+      </Paragraph>
+      <SectionTitle title="Generators of Feller Processes" />
+      <Paragraph>
+        To describe the infinitesimal generator for Feller processes more
+        generally, suppose <Math latex="\{P_t\}" padding={true} /> is a Feller
+        semigroup on <Math latex="\mathbb{R}^d" padding={true} /> and{" "}
+        <Math latex="C_K^\infty\subset\mathscr{D}_A" padding={false} />. Then
+        for every realtively compact open set <Math latex="U" />, there exists
+        functions <Math latex="a_{ij},\, b_i,\, c" /> on <Math latex="U" /> and
+        a kernel
+        <Math latex="N" /> such that for <Math latex="f\in C^2_K" /> and{" "}
+        <Math latex="x\in U" />
+        <Math
+          latex="Af(x)=c(x)f(x)+\sum_i b_i(x)\partial_i f(x) +\sum_{i,j}a_{ij}(x)\partial_{ij} f(x)+"
+          display={true}
+        />
+        <Math
+          latex="\int_{\mathbb{R}^d \backslash\{x\}}\left[f(y)-f(x)-1_{U(y)}\sum_i(y_i-x_1)\partial_i f(x)\right]N(x,dy)"
+          display={true}
+        />
+        where <Math latex="N(x,\,\cdot\,)" /> is a Radon measure on{" "}
+        <Math latex="\mathbb{R}^d \backslash\{x\}" />, the matrix{" "}
+        <Math latex="a(x)=[a_{ij}(x)]" /> is symmetric positive semidefinite,
+        <Math latex="c \leq 0" /> and <Math latex="a,\, c" /> do not depend on{" "}
+        <Math latex="U" padding={false} />.
+      </Paragraph>
+      <Paragraph>
+        The idea behind this generator <Math latex="A" /> is that the
+        infinitesimal purturbation consists of adding a translation{" "}
+        <Math latex="b(x)" padding={false} />, a Gaussian process with
+        covariance <Math latex="a(x)" padding={false} />, jumps given by{" "}
+        <Math latex="N(x,\,\cdot\,)" padding={false} />, and{" "}
+        <Math latex="c(x)f(x)" padding={false} /> accounts for scenarios for the
+        process of being killed.
+      </Paragraph>
+      <Paragraph>
+        If the process has continuous paths, then its infinitesimal generator is
+        given on
+        <Math latex="C^2_K" /> by the{" "}
+        <Highlighter>
+          semi-elliptic second order differential operator
+        </Highlighter>
+        <Math
+          display={true}
+          latex="Af(x)=c(x)f(x)+\sum_i b_i(x)\partial_i f(x) +\sum_{i,j}a_{ij}(x)\partial_{ij} f(x)"
+        />
+        where <Math latex="a(x)" /> is symmetric positive semidefinite.
+      </Paragraph>
+      <Paragraph>
+        More details about this section can be found in
+        <InlineReference
+          reference={references[1]}
+          readingList={readingList}
+          readingListHandler={readingListHandler}
+        ></InlineReference>{" "}
+        and{" "}
+        <InlineReference
+          reference={references[2]}
+          readingList={readingList}
+          readingListHandler={readingListHandler}
+        ></InlineReference>
+      </Paragraph>
+      <SectionTitle title="Diffusion Process" />
+      <Paragraph>
+        Next we will define diffusion processes in the context of the above
+        discussions. Suppose for <Math latex="x" /> the matrices{" "}
+        <Math latex="a(x)" /> is symmetric positive semidefinite. Let{" "}
+        <Math latex="b(x)" /> be a vector field, and suppose further the maps{" "}
+        <Math latex="x\mapsto a(x)" /> and <Math latex="x\mapsto b(x)" />
+        are Boreal measurable and locally bounded. We associate to the pair{" "}
+        <Math latex="(a,b)" /> the second order differential operator
+        <Math
+          display={true}
+          latex="L=\frac{1}{2}\sum_{i,j=1}^d a_{ij}(\,\cdot\,)\partial_{ij} + \sum_{i=1}^d b_i(\,\cdot\,)\partial_i "
+        />
+        A Markov process <Math latex="X" /> with state space{" "}
+        <Math latex="\mathbb{R}^d" /> is said to be a{" "}
+        <Highlighter>diffusion process</Highlighter>
+        with generator <Math latex="L" /> if <Math latex="X" /> has continuous
+        paths, and if for any <Math latex="x\in\mathbb{R}^d" /> and any{" "}
+        <Math latex="f\in C_K^\infty" />
+        <Math
+          latex="\mathbb{E}_x[f(X_t)]=f(x)+\mathbb{E}_x\left[\int_0^t Lf(X_s)\,ds\right]"
+          display={true}
+        />
+        we say that <Math latex="X" /> has covariance or{" "}
+        <Highlighter>diffusion coefficient</Highlighter> <Math latex="a" />
+        and drift <Math latex="b" padding={false} />. If further introduce
+        dependence on time
+        <Math latex="s" /> then correspondingly
+        <Math
+          display={true}
+          latex="L_s=\frac{1}{2}\sum_{i,j=1}^d a_{ij}(s,\,\cdot\,)\partial_{ij} + \sum_{i=1}^d b_i(s,\,\cdot\,)\partial_i "
+        />
+        we obtain <Highlighter>non-homogeneous diffusion</Highlighter> if for
+        any <Math latex="f\in C_K^\infty" /> and <Math latex="s<t" />
+        <Math
+          latex="\mathbb{E}_{s,x}[f(X_t)]=f(x)+\mathbb{E}_{s,x}\left[\int_s^t L_uf(X_u)\,du\right]"
+          display={true}
+        />
+      </Paragraph>
+      <SectionTitle title="Diffusion Approximation of Markov Chains" />
+      <Paragraph>
+        We now sketch out in non-rigourous terms the approximation of{" "}
+        <Text as="b">discrete-time Markov chains</Text> by diffuion and more
+        generally continuous time Markov processes. We begin a discussion of
+        convergence of Feller processes{" "}
+        <Math latex="X^n\rightarrow X" padding={false} />. As a Feller process
+        can be specified by various equivalent objects: the Feller semigroup,
+        the infinitesimal generator, we can describe this convergence in a
+        multitude of equivalent ways. We do not make precise the various modes
+        of convergences here and refer to the interested reader to{" "}
+        <InlineReference
+          reference={references[2]}
+          readingList={readingList}
+          readingListHandler={readingListHandler}
+        ></InlineReference>
+      </Paragraph>
+      <Paragraph>
+        Let <Math latex="\{X^n\}_{n\in \mathbb{N}}" padding={!false} /> and{" "}
+        <Math latex="X" /> be Feller processes in a state space
+        <Math latex="S" /> with semigroups <Math latex="\{T_{n,t}\}" /> and{" "}
+        <Math latex="\{T_t\}" /> respectively, and generators
+        <Math latex="A_n" /> and <Math latex="A" /> on the domains{" "}
+        <Math latex="\mathscr{D}_n" /> and <Math latex="\mathscr{D}" />{" "}
+        respectively. Let <Math latex="D" /> be a so called{" "}
+        <Text as="b">core</Text> of <Math latex="\mathscr{D}" /> which is a
+        special vector subspace of <Math latex="\mathscr{D}" padding={false} />.
+        Then the following (non-precise) statements are equivalent
+        <OrderedList pl="2em" pb="1em" pt="1em" styleType="lower-roman">
+          <ListItem>
+            Any element <Math latex="f" /> in the core can be approximated by a
+            sequence <Math latex="f_n\in\mathscr{D}_n" /> in the sense that{" "}
+            <Math latex="f_n\rightarrow f" /> and{" "}
+            <Math latex="A_nf_n\rightarrow Af" />{" "}
+          </ListItem>
+          <ListItem>
+            Convergence of the operators <Math latex="T_{n,t}\rightarrow T_t" />{" "}
+            for each
+            <Math latex="t" />
+          </ListItem>
+          <ListItem>
+            Convergence of functions <Math latex="T_{n,t}f\rightarrow T_tf" />{" "}
+            for every <Math latex="f\in C_0" />
+          </ListItem>
+          <ListItem>
+            The convergence in distribution of{" "}
+            <Math latex="X_0^n\rightarrow X_0" /> implies convergence of Feller
+            processes
+            <Math latex="X^n\rightarrow X" />
+          </ListItem>
+        </OrderedList>
+        This abstract convergence result can be applied to approximating Markov
+        chains:
+      </Paragraph>
+      <Paragraph>
+        Let <Math latex="\{Y^n\}_{n\in\mathbb{N}}" /> be discrete Markov chains
+        in state space
+        <Math latex="S" /> with transition operators{" "}
+        <Math latex="\{U_n\}_{n\in\mathbb{N}}" />
+        and let <Math latex="X" /> be a Feller process with semigroup{" "}
+        <Math latex="\{T_t\}" /> and generator{" "}
+        <Math latex="A" padding={false} />. Fix a core <Math latex="D" /> of the
+        generator and let <Math latex="h_n > 0" /> be a sequence of numbers that
+        converge to zero. Then the above equivalent statements apply to the
+        processes and operators
+        <Math display={true} latex="X^n_t=Y^n_{[t/h_n]}" />
+        <Math display={true} latex="T_{n,t}=U_n^{[t/h_n]}" />
+        <Math display={true} latex="A_n=h_n^{-1}(U_n-I)" />
+        In particular we can approximate the discrete-time Markov chain by
+        diffusion processes.
       </Paragraph>
     </>
   );
