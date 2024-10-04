@@ -46,7 +46,11 @@ export default function BlogList({ posts }: { posts: Post[] }) {
             {" "}
             {seenPostList.includes(index) ? `✅ ` : `${index + 1}. `}
             {post.isNew ? (
-              <Button variant={"outline"} colorScheme='teal' onClick={() => router.push(post.url)}>
+              <Button
+                variant={"outline"}
+                colorScheme="teal"
+                onClick={() => router.push(post.url)}
+              >
                 {" "}
                 {post.title}
               </Button>

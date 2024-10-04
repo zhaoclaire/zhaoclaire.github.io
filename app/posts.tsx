@@ -7,6 +7,11 @@
 
 const blogPosts = [
   {
+    title: "Llama 3 Take Aways",
+    url: "/llama3",
+    notStarted: true,
+  },
+  {
     title: "AnimateDiff",
     url: "/animate-diff",
     notStarted: true,
