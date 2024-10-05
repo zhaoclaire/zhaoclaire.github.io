@@ -7,6 +7,11 @@
 
 const blogPosts = [
   {
+    title: "Movie Gen",
+    url: "/movie-gen",
+    notStarted: true,
+  },
+  {
     title: "Llama 3 Take Aways",
     url: "/llama3",
     notStarted: true,
