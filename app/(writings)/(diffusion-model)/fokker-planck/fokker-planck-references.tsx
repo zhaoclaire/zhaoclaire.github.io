@@ -29,4 +29,16 @@ export const references: ReferenceItem[] = [
     title: "Y. Song et al., Consistency Models",
     url: "https://arxiv.org/pdf/2303.01469",
   },
+  {
+    id: 6,
+    title:
+      "D. Bakry et al., Analysis and Geometry of Markov Diffusion Operators, Grundlehren der mathematischen Wissenschaften",
+    url: "https://link.springer.com/book/10.1007/978-3-319-00227-9",
+  },
+  {
+    id: 7,
+    title:
+      "U. G. Haussmann and E. Pardoux, Time Reversal of Diffusions, Annals of Probability",
+    url: "https://www.jstor.org/stable/2243859",
+  },
 ];

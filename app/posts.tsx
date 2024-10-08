@@ -7,11 +7,6 @@
 
 const blogPosts = [
   {
-    title: "Optimal Transport, Ricci Curvature, and Diffusion",
-    url: "/optimal-transport",
-    notStarted: true,
-  },
-  {
     title: "Movie Gen",
     url: "/movie-gen",
     notStarted: true,
@@ -53,6 +48,11 @@ const blogPosts = [
   {
     title: "Score entropy discrete diffusion models",
     url: "/score-entropy-discrete-diffusion",
+    inProgress: true,
+  },
+  {
+    title: "Optimal Transport and Diffusion",
+    url: "/optimal-transport",
     inProgress: true,
   },
   {
