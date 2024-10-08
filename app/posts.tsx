@@ -7,6 +7,11 @@
 
 const blogPosts = [
   {
+    title: "Optimal Transport, Ricci Curvature, and Diffusion",
+    url: "/optimal-transport",
+    notStarted: true,
+  },
+  {
     title: "Movie Gen",
     url: "/movie-gen",
     notStarted: true,
