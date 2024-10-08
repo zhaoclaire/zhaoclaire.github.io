@@ -127,7 +127,7 @@ export default function OptimalTransport({
       </Paragraph>
       <SectionTitle title="Log Sobolev Inequality" />
       <Paragraph>
-        We discuss the paper of Otto and Villani with respect to M. Talagrand's
+        We discuss the paper of Otto and Villani with respect to M. Talagrand&apos;s
         inequalities, outlining the connection with optimal transportation,
         Fisher information and PDE.
       </Paragraph>
