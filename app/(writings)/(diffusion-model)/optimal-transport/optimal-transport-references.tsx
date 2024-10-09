@@ -30,6 +30,11 @@ export const references: ReferenceItem[] = [
     id: 6,
     title: 'The Variational Formulation of the Fokker-Planck Equation',
     url: 'https://epubs.siam.org/doi/10.1137/S0036141096303359'
+  },
+  {
+    id: 7,
+    title: 'Transportation cost for Gaussian and other product measures',
+    url: 'https://link.springer.com/article/10.1007/BF02249265'
   }
   
 ];
