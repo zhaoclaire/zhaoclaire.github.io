@@ -35,6 +35,11 @@ export const references: ReferenceItem[] = [
     id: 7,
     title: 'Transportation cost for Gaussian and other product measures',
     url: 'https://link.springer.com/article/10.1007/BF02249265'
+  },
+  {
+    id: 8,
+    title: 'G. de Philippis, A. Figalli, The Monge-Ampere Equation And Its Link To Optimal Transportation, Bull. AMS',
+    url: 'https://www.ams.org/journals/bull/2014-51-04/S0273-0979-2014-01459-4/S0273-0979-2014-01459-4.pdf'
   }
   
 ];

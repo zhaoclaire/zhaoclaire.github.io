@@ -3,7 +3,7 @@ import Math from "@/components/Math";
 import Paragraph from "@/components/Paragraph";
 import { ReferenceItem } from "@/components/Reference";
 import SectionTitle from "@/components/SectionTitle";
-import { Text } from "@chakra-ui/react";
+import { List, ListIcon, ListItem, OrderedList, Text } from "@chakra-ui/react";
 import InlineReference from "@/components/InlineReference";
 import { references } from "./optimal-transport-references";
 import Highlighter from "@/components/Highlighter";
@@ -84,6 +84,27 @@ export default function OptimalTransport({
         <Math latex="\Omega \times \Omega" /> such that
         <Math latex="\mu" /> is the first marginal and <Math latex="\nu" /> the
         second marginal of <Math latex="\pi" padding={false} />.
+      </Paragraph>
+      <Paragraph>
+        As a fun historical fact, more than 200 years ago Monge wanted to figure
+        out how to move rubble to build a fortification so as to minimize the
+        cost. In his original formulation, the cost from moving{" "}
+        <Math latex="m" /> units of mass from <Math latex="x" /> to{" "}
+        <Math latex="y" />
+        in <Math latex="\mathbb{R}^3" /> is{" "}
+        <Math latex="m|x-y|" padding={false} />. Our modern day formulation
+        involves two probability measures <Math latex="\mu" />{" "}
+        <Math latex="\nu" /> representing the rubble and fortification defined
+        on probability spaces <Math latex="X" /> and <Math latex="Y" />
+        find a measurable mapping <Math latex="T:X\rightarrow Y" /> (the so
+        called <Highlighter>transport map</Highlighter>) which induces the
+        pushforward <Math latex="T_\sharp \mu = \nu" />
+        i.e. <Math display={true} latex="\nu(A)=\mu(T^{-1}(A))" />
+        so as to minimize the transportation cost
+        <Math
+          latex="\int_X c(x, T(x))\,d\mu(x)=\min_{\substack{S:X\rightarrow Y \\S_\sharp\mu = \nu}} \left\{\int_X c(x, S(x))\,d\mu(x)\right\}"
+          display={true}
+        />
       </Paragraph>
       <Paragraph>
         Something interesting occurs when{" "}
@@ -253,6 +274,156 @@ export default function OptimalTransport({
           readingList={readingList}
           readingListHandler={readingListHandler}
         ></InlineReference>
+      </Paragraph>
+      <SectionTitle title="Monge-Ampère Equation" />
+      <Paragraph>
+        Whereas the model elliptic equation <Math latex="\Delta u = f" />{" "}
+        prescribes the sum of the eigenvalues of the Hessian of{" "}
+        <Math latex="u" /> the Monge-Ampère Equation prescribes the product of
+        its eigenvalues:
+        <Math
+          latex="\det D^2u = f(x, u, \nabla u)\quad \text{in}\quad \Omega"
+          display={true}
+        />
+        for open subset <Math latex="\Omega\subset\mathbb{R}^d" /> convex
+        function
+        <Math latex="u:\Omega\rightarrow \mathbb{R}" /> and precribed function
+        <Math
+          latex="f:\Omega\times\mathbb{R}\times\mathbb{R}^d\rightarrow \mathbb{R}^+"
+          padding={false}
+        />
+        . The <Text as="b">Gaussian curvature equation</Text> with
+        <Math
+          latex="f=K(x)\left(1+|\nabla u|^2\right)^{(n+2)/2}"
+          display={true}
+        />{" "}
+        serve the basic prototype of Monge-Ampère Equation which imposes the
+        Guassian curvature <Math latex="K(x)" /> of the graph of{" "}
+        <Math latex="u" /> at <Math latex="(x,\, u(x))" padding={false} />.
+      </Paragraph>
+      <Paragraph>
+        A variation of the equation
+        <Math
+          latex="\det\left( D^2u-\mathcal{A}(x,\nabla u)\right) = f(x, u, \nabla u)"
+          display={true}
+        />
+        turns out to be useful for optimal transportation in the study of the
+        regularity of transport maps.
+      </Paragraph>
+      <Paragraph>
+        Studying weak solution (so called Alexandrov solutions) of the
+        Monge-Ampère equaiton led to the following formulation. First recall
+        some concepts. Given an open connected convex set{" "}
+        <Math latex="\Omega" /> the <Text as="b">subdifferential</Text>
+        of a convex function is defined{" "}
+        <Math
+          latex="\partial u (x)= \{p\in\mathbb{R}^d: u(y)\geq u(x)+ p^\top(y-x) \quad \forall y\in\Omega\}"
+          display={true}
+        />
+        The Monge-Ampère measure of <Math latex="u" /> is defined for every
+        Boreal set <Math latex="E\subset \Omega" />
+        <Math latex="\mu_u(E)=|\partial u(E)|" display={true} />
+        where <Math latex="|\cdot |" /> denotes the Lebesgue measure and
+        <Math
+          latex="\partial u(E)=\bigcup_{x\in E}\partial u(x)"
+          display={true}
+        />
+        It turns out <Math latex="\mu_u=\det D^2u(x)\, dx" /> in{" "}
+        <Math latex="\Omega" padding={false} />.
+      </Paragraph>
+      <Paragraph>
+        Given an open convex set <Math latex="\Omega" /> and a Boreal measure
+        <Math latex="\mu" /> on <Math latex="\Omega" padding={false} />, a
+        convex function
+        <Math latex="u:\Omega\rightarrow \mathbb{R}" /> is called an{" "}
+        <Highlighter>Alexandrov solution</Highlighter>
+        to the Monge-Ampère Equation
+        <Math display={true} latex="\det D^2u = \mu " /> if{" "}
+        <Math latex="\mu=\mu_u" /> as Boreal measures.
+      </Paragraph>
+      <Paragraph>
+        The notation above is such that if <Math latex="\mu = fdx" /> then we
+        say <Math latex="u" /> solves{" "}
+        <Math display={!true} latex="\det D^2u = f " padding={false} />.
+      </Paragraph>
+      <Paragraph>
+        Let <Math latex="u:\Omega\rightarrow \mathbb{R}" />
+        be a convex function defined on the bounded open and connected set{" "}
+        <Math latex="\Omega" />. The{" "}
+        <Highlighter>Alexandrov maximum principle</Highlighter> is that if{" "}
+        <Math latex="u=0" /> on <Math latex="\partial\Omega" /> then
+        <Math
+          display={true}
+          latex="|u(x)|^d \lesssim_{d} (\text{diam}\Omega)^{d-1}\,\cdot\text{dist}(x,\partial\Omega)\,\cdot|\partial u(\Omega)|\quad \forall x\in\Omega"
+        />
+      </Paragraph>
+      <Paragraph>
+        A theorem states that for a bounded open and connected{" "}
+        <Math latex="\Omega" /> and nonnegative Boreal measure{" "}
+        <Math latex="\mu" /> the following problem has a Anexandrov solution
+        <Math
+          latex="
+            \begin{cases}
+              \det D^2u=\mu &\text{in } \Omega \\
+                u=0 &\text{on } \partial\Omega
+            \end{cases}"
+          display={true}
+        />
+      </Paragraph>
+      <Paragraph>
+        It turns out that if <Math latex="\mu" /> and <Math latex="\nu" />
+        are compactly supported probability measures on{" "}
+        <Math latex="\mathbb{R}^d" />
+        and <Math latex="\mu" /> is absolutely continuous with the Lebesgue
+        measure then
+        <OrderedList pl="2em" pb="1em" pt="1em">
+          <ListItem>
+            There <Text as="b">exists a unique solution</Text>{" "}
+            <Math latex="T" /> of the optimal transport problem with quadratic
+            cost (which turns out to be equivalent to the cost{" "}
+            <Math latex="-x^\top y" />){" "}
+            <Math display={true} latex="c(x,y)=|x-y|^2/2" />
+          </ListItem>
+          <ListItem>
+            There exists a convex function{" "}
+            <Math latex="u:\mathbb{R}^d\rightarrow\mathbb{R}" />
+            such that the optimal transport map <Math latex="T" /> is given by{" "}
+            <Math latex="T=\nabla u(x)" /> for{" "}
+            <Math latex="\mu-" padding={false} />
+            a.e. <Math latex="x" padding={false} />.
+          </ListItem>
+          <ListItem>
+            If <Math latex="\mu(dx)=f(x)dx" /> and{" "}
+            <Math latex="\nu(dy)=g(y)dy" />
+            then <Math latex="T" /> is differentiable{" "}
+            <Math latex="\mu-" padding={false} />
+            a.e. and
+            <Math
+              display={true}
+              latex="|\det (\nabla T(x)) |=\frac{f(x)}{(g\circ T)(x)}"
+            />
+            for <Math latex="\mu-" padding={false} />
+            a.e.
+          </ListItem>
+        </OrderedList>
+      </Paragraph>
+      <Paragraph>
+        Any convex function admits Hessian in the distributional sense. It turns
+        out that <Math latex="u" /> solves the Monge-Ampère Equation
+        <Math
+          display={true}
+          latex="\det(D^2u(x))=\frac{f(x)}{(g\circ T)(x)}\quad fdx-\text{a.e.}"
+        />
+        with boundary condition <Math latex="\nabla u(X)=Y" padding={false} />.
+        In this case we call
+        <Math latex="u" /> a <Highlighter>Brenier solution</Highlighter> of the
+        Monge-Ampère Equation. More about this and the{" "}
+        <Highlighter>partial transport problem</Highlighter> can be found in{" "}
+        <InlineReference
+          reference={references[7]}
+          readingList={readingList}
+          readingListHandler={readingListHandler}
+        ></InlineReference>{" "}
       </Paragraph>
     </>
   );
