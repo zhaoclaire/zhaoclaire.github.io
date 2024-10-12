@@ -51,9 +51,14 @@ const blogPosts = [
     inProgress: true,
   },
   {
+    title: "Wasserstein Gradient Flow and Otto Calculus",
+    url: "/gradient-flow",
+    inProgress: true,
+  },
+  {
     title: "Optimal Transport and Diffusion",
     url: "/optimal-transport",
-    inProgress: true,
+    isNew: true,
   },
   {
     title: "Fokker-Planck Equation and Diffusion Models",
