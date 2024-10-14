@@ -9,6 +9,9 @@ import { useEffect, useRef } from "react";
 const MACROS = {
   "\\E": "\\mathbb{E}",
   "\\x": "\\mathbf{x}",
+  "\\b": "\\mathbf{#1}",
+  "\\t": "\\text{#1}",
+  "\\op": "\\operatorname{#1}",
 };
 
 export default function Math({

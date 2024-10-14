@@ -41,4 +41,9 @@ export const references: ReferenceItem[] = [
       "U. G. Haussmann and E. Pardoux, Time Reversal of Diffusions, Annals of Probability",
     url: "https://www.jstor.org/stable/2243859",
   },
+  {
+    id: 8,
+    title: 'A Convexity Principle for Interacting Gases',
+    url: 'https://www.sciencedirect.com/science/article/pii/S0001870897916340'
+  }
 ];
