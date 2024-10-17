@@ -7,6 +7,8 @@ import { List, ListIcon, ListItem, OrderedList, Text } from "@chakra-ui/react";
 import InlineReference from "@/components/InlineReference";
 import { references } from "./optimal-transport-references";
 import Highlighter from "@/components/Highlighter";
+import DisplayMath from "@/components/DisplayMath";
+import MathEndsSentence from "@/components/MathEndsSentence";
 
 export default function OptimalTransport({
   readingList,
@@ -424,6 +426,29 @@ export default function OptimalTransport({
           readingList={readingList}
           readingListHandler={readingListHandler}
         ></InlineReference>{" "}
+      </Paragraph>
+      <SectionTitle title="Theory on Smooth Manifold" />
+      <Paragraph>
+        We now sketch out some interesting ideas not too rigorouly . On a
+        d-dimensional Riemmanian manifold M with metric g, and reference measure
+        <Math latex="m=e^{-V} \t{Vol}" />
+        with a potential function <Math latex="V: M\rightarrow \mathbb{R}" />
+        we can define a differential operator{" "}
+        <MathEndsSentence latex="L=\Delta-\langle\nabla V,\, \cdot \,\rangle" /> We define
+        <DisplayMath latex="\mathcal{E}(f,g)=-\int_M fLg\, dm" />
+        which gives rise to a quadratic energy
+        <DisplayMath latex="\mathcal{E}(f)=\int_M |\nabla f|^2\, dm" />
+        Moreover L generates a semigroup <Math latex="\{P_t\}_{t\geq 0}" />
+        which gives rise to the solution <DisplayMath latex="f_t=P_t f" />
+        of the diffusion eqution
+        <DisplayMath latex="\partial_t f_t = L f_t \quad f_0=f" />
+      </Paragraph>
+      <Paragraph>
+          When <Math latex="M=\mathbb{R}^d"/> and <Math latex="V=0"/>, then the operator L 
+          is the Laplacian, and the corresponding process is heat flow. For <Math latex="V\neq 0"/>
+          then we have a drift-diffusion operator. In particular the potential <DisplayMath latex="V(x) = \frac{1}{2}|x|^2+\frac{1}{2}\t{ln}(2\pi)"/>
+          gives rise to a Gaussian measure <Math latex="m" /> and the corresponding <Text as='b'>Ornstein-Uhlenbeck operator</Text>
+          <DisplayMath latex="Lf=\Delta f -x^\top \nabla f" />
       </Paragraph>
     </>
   );

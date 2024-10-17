@@ -33,6 +33,11 @@ const blogPosts = [
     notStarted: true,
   },
   {
+    title: "Diffusion on Riemannian Manifold",
+    url: "/manifold-diffusion",
+    notStarted: true,
+  },
+  {
     title: "VideoPoet: LLM video generation",
     url: "/video-poet",
   },
