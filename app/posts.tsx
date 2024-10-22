@@ -7,6 +7,11 @@
 
 const blogPosts = [
   {
+    title: 'Mean Field Games and Optimal Control',
+    url: '/mean-field',
+    notStarted: true,
+  },
+  {
     title: "Llama 3 Take Aways",
     url: "/llama3",
     notStarted: true,
