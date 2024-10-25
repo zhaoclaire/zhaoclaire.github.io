@@ -7,6 +7,11 @@
 
 const blogPosts = [
   {
+    title: 'Markov Chain Mixing',
+    url: '/mixing',
+    notStarted: true,
+  },
+  {
     title: 'Mean Field Games and Optimal Control',
     url: '/mean-field',
     notStarted: true,
