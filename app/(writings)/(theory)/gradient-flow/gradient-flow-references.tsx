@@ -25,4 +25,9 @@ export const references: ReferenceItem[] = [
       "A. Rényi, On Measures of Entropy and Information, Berkeley Symp. on Math. Statist. and Prob.",
     url: "https://projecteuclid.org/ebooks/berkeley-symposium-on-mathematical-statistics-and-probability/On-Measures-of-Entropy-and-Information/chapter/On-Measures-of-Entropy-and-Information/bsmsp/1200512181",
   },
+  {
+    id: 5,
+    title: 'Tao Notes, MATH 285G: Perelman proof of the Poincaré conjecture',
+    url: 'https://www.math.ucla.edu/~tao/285g.1.08s/'
+  }
 ];

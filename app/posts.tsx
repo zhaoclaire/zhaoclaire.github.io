@@ -7,6 +7,11 @@
 
 const blogPosts = [
   {
+    title: 'Compressed Sensing',
+    url: '/compressed-sensing',
+    notStarted: true,
+  },
+  {
     title: 'Markov Chain Mixing',
     url: '/mixing',
     notStarted: true,
