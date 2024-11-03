@@ -7,6 +7,16 @@
 
 const blogPosts = [
   {
+    title: 'MIP=RE in Short and Some Musings on Complexity Theory',
+    url: '/mip-re',
+    notStarted: true,
+  },
+  {
+    title: 'Preference Optimization',
+    url: '/preference-optimization',
+    notStarted: true,
+  },
+  {
     title: 'Compressed Sensing',
     url: '/compressed-sensing',
     notStarted: true,
