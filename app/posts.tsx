@@ -1,11 +1,23 @@
 // Append new posts at the top
 
+import { url } from "inspector";
+
 // {
 //   title: '',
 //   url: '',
 // },
 
 const blogPosts = [
+  {
+    title: 'Survey of ML from the Applied Mathematics Point of View (Nov edition)',
+    url: '/Nov-24-survey',
+    notStarted: true,
+  },
+  {
+    title: 'Survey on Theory (Nov edition)',
+    url: '/theory-survey-nov-2024',
+    notStarted: true,
+  },
   {
     title: 'MIP=RE in Short and Some Musings on Complexity Theory',
     url: '/mip-re',
