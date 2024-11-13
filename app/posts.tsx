@@ -9,11 +9,6 @@ import { url } from "inspector";
 
 const blogPosts = [
   {
-    title: 'Survey of ML from the Applied Mathematics Point of View (Nov edition)',
-    url: '/Nov-24-survey',
-    notStarted: true,
-  },
-  {
     title: 'Survey on Theory (Nov edition)',
     url: '/theory-survey-nov-2024',
     notStarted: true,
@@ -21,11 +16,6 @@ const blogPosts = [
   {
     title: 'MIP=RE in Short and Some Musings on Complexity Theory',
     url: '/mip-re',
-    notStarted: true,
-  },
-  {
-    title: 'Preference Optimization',
-    url: '/preference-optimization',
     notStarted: true,
   },
   {
@@ -72,6 +62,26 @@ const blogPosts = [
   {
     title: "Diffusion on Riemannian Manifold",
     url: "/manifold-diffusion",
+    notStarted: true,
+  },
+  {
+    title: 'Survey of ML from the Applied Mathematics Point of View (Nov edition)',
+    url: '/Nov-24-survey',
+    notStarted: true,
+  },
+  {
+    title: 'Preference Optimization',
+    url: '/preference-optimization',
+    notStarted: true,
+  },
+  {
+    title: "WALT video diffusion model",
+    url: "/walt",
+    notStarted: true,
+  },
+  {
+    title: "World Model via Joint Embedding Predictive Architectures",
+    url: "/jepa",
     notStarted: true,
   },
   {
