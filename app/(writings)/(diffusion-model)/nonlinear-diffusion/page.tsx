@@ -3,16 +3,16 @@ import Blog from "@/components/Blog";
 import { ReferenceItem } from "@/components/Reference";
 
 // import references and blog
-import { references } from "./walt-references";
-import Walt from "./blog";
+import { references } from "./nonlinear-diffusion-references";
+import NonlinearDiffusion from "./blog";
 
-export default function WaltBlog() {
-  function renderWalt(
+export default function NonlinearDiffusionBlog() {
+  function renderNonlinearDiffusion(
     readingList: ReferenceItem[],
     readingListHandler: any
   ) {
     return (
-      <Walt
+      <NonlinearDiffusion
         readingList={readingList}
         readingListHandler={readingListHandler}
       />
@@ -20,6 +20,6 @@ export default function WaltBlog() {
   }
 
   return (
-    <Blog referenceList={references} renderChildren={renderWalt}></Blog>
+    <Blog referenceList={references} renderChildren={renderNonlinearDiffusion}></Blog>
   );
 }

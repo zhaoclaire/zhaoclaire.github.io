@@ -75,8 +75,18 @@ const blogPosts = [
     notStarted: true,
   },
   {
+    title: 'Scaling Laws for Precision',
+    url: 'scaling-law-precision',
+    notStarted: true,
+  },
+  {
     title: "Neural Operator with Memory (MemNO)",
     url: "/mem-no",
+    notStarted: true,
+  },
+  {
+    title: 'Local score matching for nonlinear processes',
+    url: '/nonlinear-diffusion',
     notStarted: true,
   },
   {
