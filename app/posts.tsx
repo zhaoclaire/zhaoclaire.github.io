@@ -75,6 +75,11 @@ const blogPosts = [
     notStarted: true,
   },
   {
+    title: "Neural Operator with Memory (MemNO)",
+    url: "/mem-no",
+    notStarted: true,
+  },
+  {
     title: "WALT video diffusion model",
     url: "/walt",
     notStarted: true,
