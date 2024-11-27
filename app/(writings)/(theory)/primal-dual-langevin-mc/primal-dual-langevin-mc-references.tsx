@@ -30,5 +30,10 @@ export const references: ReferenceItem[] = [
     id: 6,
     title: 'M. Girolami, B. Calderhead, Riemann manifold Langevin and Hamiltonian Monte Carlo methods, J. Royal Stat. Soc. 2011',
     url: 'https://rss.onlinelibrary.wiley.com/doi/epdf/10.1111/j.1467-9868.2010.00765.x'
+  },
+  {
+    id: 7,
+    title: 'G. Roberts, R. Tweedie, Exponential convergence of Langevin distributions and their discrete approximations, Bernoulli 1996',
+    url: 'https://projecteuclid.org/journals/bernoulli/volume-2/issue-4/Exponential-convergence-of-Langevin-distributions-and-their-discrete-approximations/bj/1178291835.full'
   }
 ];

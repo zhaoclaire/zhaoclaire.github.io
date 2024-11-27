@@ -10,8 +10,10 @@ const MACROS = {
   "\\E": "\\mathbb{E}",
   "\\x": "\\mathbf{x}",
   "\\b": "\\mathbf{#1}",
+  "\\rd": "\\mathbb{R}^d",
   "\\t": "\\text{#1}",
   "\\op": "\\operatorname{#1}",
+  "\\pp": "\\mathcal{P}_2(\\mathbb{R}^d)"
 };
 
 export default function Math({
