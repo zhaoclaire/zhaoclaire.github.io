@@ -123,6 +123,11 @@ const blogPosts = [
     inProgress: true,
   },
   {
+    title: "An Primal Dual Langevin Monte Carlo Algorithm",
+    url: "/primal-dual-langevin-mc",
+    inProgress: true,
+  },
+  {
     title: "Optimal Transport and Diffusion",
     url: "/optimal-transport",
     isNew: true,
