@@ -123,7 +123,7 @@ const blogPosts = [
     inProgress: true,
   },
   {
-    title: "An Primal Dual Langevin Monte Carlo Algorithm",
+    title: "A Primal Dual Langevin Monte Carlo Algorithm",
     url: "/primal-dual-langevin-mc",
     inProgress: true,
   },
