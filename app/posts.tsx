@@ -100,6 +100,16 @@ const blogPosts = [
     notStarted: true,
   },
   {
+    title: 'Information Divergences',
+    url: 'information-divergences',
+    notStarted: true,
+  },
+  {
+    title: 'Gromov Wasserstein Distance Between Spheres',
+    url: 'gromov-wasserstein-distance',
+    notStarted: true,
+  },
+  {
     title: "VideoPoet: LLM video generation",
     url: "/video-poet",
   },

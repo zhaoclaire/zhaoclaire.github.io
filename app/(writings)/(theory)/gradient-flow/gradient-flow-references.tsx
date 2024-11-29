@@ -29,5 +29,10 @@ export const references: ReferenceItem[] = [
     id: 5,
     title: 'Tao Notes, MATH 285G: Perelman proof of the Poincaré conjecture',
     url: 'https://www.math.ucla.edu/~tao/285g.1.08s/'
+  },
+  {
+    id: 6,
+    title: 'Y. He et al, Regularized Stein Variational Gradient Flow, Fond. Comp. Math 2024',
+    url: 'https://link.springer.com/article/10.1007/s10208-024-09663-w'
   }
 ];

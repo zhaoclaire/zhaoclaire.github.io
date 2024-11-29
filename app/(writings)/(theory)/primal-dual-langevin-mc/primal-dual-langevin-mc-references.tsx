@@ -35,5 +35,15 @@ export const references: ReferenceItem[] = [
     id: 7,
     title: 'G. Roberts, R. Tweedie, Exponential convergence of Langevin distributions and their discrete approximations, Bernoulli 1996',
     url: 'https://projecteuclid.org/journals/bernoulli/volume-2/issue-4/Exponential-convergence-of-Langevin-distributions-and-their-discrete-approximations/bj/1178291835.full'
+  },
+  {
+    id: 8,
+    title: 'S. Ishida, H. Lavenant, Quantitative Convergence of a Discretization of Dynamic Optimal Transport Using the Dual Formulation, Found. Comp. Math 2024',
+    url: 'https://link.springer.com/article/10.1007/s10208-024-09686-3'
+  },
+  {
+    id: 9,
+    title: 'T. Lelièvre et al, Unbiasing Hamiltonian Monte Carlo Algorithms for a General Hamiltonian Function, Found. Comp. Math 2024',
+    url: 'https://link.springer.com/article/10.1007/s10208-024-09677-4'
   }
 ];
