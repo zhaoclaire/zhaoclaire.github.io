@@ -13,7 +13,10 @@ const MACROS = {
   "\\rd": "\\mathbb{R}^d",
   "\\t": "\\text{#1}",
   "\\op": "\\operatorname{#1}",
-  "\\pp": "\\mathcal{P}_2(\\mathbb{R}^d)"
+  "\\pp": "\\mathcal{P}_2(\\mathbb{R}^d)",
+
+  // operators 
+  "\\kl": "\\operatorname{KL}\\left(#1 || #2\\right)"
 };
 
 export default function Math({

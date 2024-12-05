@@ -33,31 +33,39 @@ export default function PrimalDualLangevinMC({
         <DisplayMath latex="\E_{x\sim \mu}[h_j] = 0" />
       </Paragraph>
       <Paragraph>
-        The constrained sampling problem encompasses a number of practical problems such as 
-        sampling from convex sets, by sampling from 
-        <DisplayMath latex="\mu^\star \in \argmin \text{KL}(\mu||\pi)"/>
-        <DisplayMath latex="\mathcal{P}_{x\sim \mu}[x\in C] = 1"/>
-        for a close convex set <MathEndsSentence latex="C\subset\rd"/>
-        Rate constrained Bayesian models 
-        <DisplayMath latex="\min \text{KL}(\mu||\pi)"/>
-        <DisplayMath latex="\E_{x, \theta\sim \mu}[q(x;\theta) | \mathcal{G}]\geq \E_{x, \theta\sim \mu}[q(x;\theta)]-\delta"/>
+        The constrained sampling problem encompasses a number of practical problems such as
+        sampling from convex sets, by sampling from
+        <DisplayMath latex="\mu^\star \in \argmin \text{KL}(\mu||\pi)" />
+        <DisplayMath latex="\mathcal{P}_{x\sim \mu}[x\in C] = 1" />
+        for a close convex set <MathEndsSentence latex="C\subset\rd" />
+        Rate constrained Bayesian models
+        <DisplayMath latex="\min \text{KL}(\mu||\pi)" />
+        <DisplayMath latex="\E_{x, \theta\sim \mu}[q(x;\theta) | \mathcal{G}]\geq \E_{x, \theta\sim \mu}[q(x;\theta)]-\delta" />
 
       </Paragraph>
-      <SectionTitle title="Background"/>
+      <SectionTitle title="Background" />
       <Paragraph>
-        Suppose <Math latex="\pi\in\pp" /> has density <Math latex="e^{-f(x)}/\mathcal{Z}"/> for a  
-        smooth and strongly convex function <MathEndsSentence latex="f"/> Consider the Langevin diffusion 
+        Let <MathEndsSentence latex="f" /> be a smooth and strongly convex function. To the measure <Math latex="\pi\in\pp" />
+        with density <Math latex="e^{-f(x)}/\mathcal{Z}" /> we can associate a diffusion process called Langevin diffusion, defined
+        through the SDE
         <DisplayMath latex="dX_t = -\nabla f(X_t) \,dt + \sqrt{2}\, dB_t" />
 
-        The density <Math latex="\mu=\mu(t,x)"/> of <Math latex="X_t"/> satisfies the Fokker-Planck equation 
-        <DisplayMath latex="\partial_t \mu = \text{div}\left(\mu \nabla_{W_2}\text{KL}(\mu||\pi)\right)"/>
+        The density <Math latex="\mu=\mu(t,x)" /> of <Math latex="X_t" /> satisfies the Fokker-Planck equation
+        <DisplayMath latex="\partial_t \mu = \text{div}\left(\mu \nabla_{W_2}\text{KL}(\mu||\pi)\right)" />
 
-        In some sense the Fokker-Planck equation is the gradient flow of KL divergence in 2-Wasserstein space.
+        In particular the KL divergence has the form
 
-        Discretization of the SDE through the forward Euler-Maruyama method leads to the Langevin Monte Carlo algorithm 
-        <DisplayMath latex="x_{k+1}=x_k-\gamma_k\nabla f(x_k) + \sqrt{2\gamma_k} Z_k\qquad Z_k \overset{iid}{\sim} \mathcal{N}(0, I_d) " /> 
+        <DisplayMath latex="\kl{\mu}{\pi} = \underbrace{\int f \,d\mu}_{\text{potential energy}\, \mathcal{V}(\mu)}+ \underbrace{\int \log(\mu)\,d\mu}_{\text{negative entropy}\,\mathcal{H}(\mu)} - \log(\mathcal{Z})" />
+        In some sense the Fokker-Planck equation is the gradient flow of KL divergence in 2-Wasserstein space. The diffusion
+        brings the distribution <Math latex="\mu_t" /> of <Math latex="X_t" /> closer to the measure <Math latex="\pi" /> from which we wish to draw samples.
 
-
+      </Paragraph>
+      <Paragraph>
+        Discretization of the SDE through the forward Euler-Maruyama method leads to the Langevin Monte Carlo algorithm
+        <DisplayMath latex="x_{k+1}=x_k-\gamma_k\nabla f(x_k) + \sqrt{2\gamma_k} Z_k\qquad Z_k \overset{iid}{\sim} \mathcal{N}(0, I_d) " />
+        whereby <Math latex="\gamma_k > 0" /> is the size of the <Math latex="k^{\text{th}}" /> step. The convergence rate of this discretization 
+        has been established for potentials satisfying various smoothness and convexity conditions, or the measure <Math latex="\pi" /> satisfies 
+        appropriate LSI condition.
       </Paragraph>
     </>
   );
