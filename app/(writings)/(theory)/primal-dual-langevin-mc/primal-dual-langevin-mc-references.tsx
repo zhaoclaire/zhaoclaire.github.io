@@ -45,5 +45,10 @@ export const references: ReferenceItem[] = [
     id: 9,
     title: 'T. Lelièvre et al, Unbiasing Hamiltonian Monte Carlo Algorithms for a General Hamiltonian Function, Found. Comp. Math 2024',
     url: 'https://link.springer.com/article/10.1007/s10208-024-09677-4'
+  },
+  {
+    id: 10,
+    title: 'A. Wibisono, Sampling as optimization in the space of measures: The Langevin dynamics as a composite optimization problem, PMLR 2018',
+    url: 'http://proceedings.mlr.press/v75/wibisono18a/wibisono18a.pdf'
   }
 ];
