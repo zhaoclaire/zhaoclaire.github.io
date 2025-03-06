@@ -8,111 +8,111 @@ import { url } from "inspector";
 // },
 
 const blogPosts = [
-  {
-    title: 'Survey on Theory (Nov edition)',
-    url: '/theory-survey-nov-2024',
-    notStarted: true,
-  },
-  {
-    title: 'MIP=RE in Short and Some Musings on Complexity Theory',
-    url: '/mip-re',
-    notStarted: true,
-  },
-  {
-    title: 'Compressed Sensing',
-    url: '/compressed-sensing',
-    notStarted: true,
-  },
-  {
-    title: 'Markov Chain Mixing',
-    url: '/mixing',
-    notStarted: true,
-  },
-  {
-    title: 'Mean Field Games and Optimal Control',
-    url: '/mean-field',
-    notStarted: true,
-  },
-  {
-    title: "Llama 3 Take Aways",
-    url: "/llama3",
-    notStarted: true,
-  },
-  {
-    title: "AnimateDiff",
-    url: "/animate-diff",
-    notStarted: true,
-  },
-  {
-    title: "Guided video synthesis",
-    url: "/guided-video-synthesis",
-    notStarted: true,
-  },
-  {
-    title: "Control Net",
-    url: "/control-net",
-    notStarted: true,
-  },
-  {
-    title:
-      "Lumiere: video generation by space-time diffusion",
-    url: "/lumiere",
-    notStarted: true,
-  },
-  {
-    title: "Diffusion on Riemannian Manifold",
-    url: "/manifold-diffusion",
-    notStarted: true,
-  },
-  {
-    title: 'Survey of ML from the Applied Mathematics Point of View (Nov edition)',
-    url: '/Nov-24-survey',
-    notStarted: true,
-  },
-  {
-    title: 'Preference Optimization',
-    url: '/preference-optimization',
-    notStarted: true,
-  },
-  {
-    title: 'Scaling Laws for Precision',
-    url: 'scaling-law-precision',
-    notStarted: true,
-  },
-  {
-    title: "Neural Operator with Memory (MemNO)",
-    url: "/mem-no",
-    notStarted: true,
-  },
-  {
-    title: 'Local score matching for nonlinear processes',
-    url: '/nonlinear-diffusion',
-    notStarted: true,
-  },
-  {
-    title: "WALT video diffusion model",
-    url: "/walt",
-    notStarted: true,
-  },
-  {
-    title: "World Model via Joint Embedding Predictive Architectures",
-    url: "/jepa",
-    notStarted: true,
-  },
-  {
-    title: 'Information Divergences',
-    url: 'information-divergences',
-    notStarted: true,
-  },
-  {
-    title: 'Gromov Wasserstein Distance Between Spheres',
-    url: 'gromov-wasserstein-distance',
-    notStarted: true,
-  },
-  {
-    title: "VideoPoet: LLM video generation",
-    url: "/video-poet",
-  },
+  // {
+  //   title: 'Survey on Theory (Nov edition)',
+  //   url: '/theory-survey-nov-2024',
+  //   notStarted: true,
+  // },
+  // {
+  //   title: 'MIP=RE in Short and Some Musings on Complexity Theory',
+  //   url: '/mip-re',
+  //   notStarted: true,
+  // },
+  // {
+  //   title: 'Compressed Sensing',
+  //   url: '/compressed-sensing',
+  //   notStarted: true,
+  // },
+  // {
+  //   title: 'Markov Chain Mixing',
+  //   url: '/mixing',
+  //   notStarted: true,
+  // },
+  // {
+  //   title: 'Mean Field Games and Optimal Control',
+  //   url: '/mean-field',
+  //   notStarted: true,
+  // },
+  // {
+  //   title: "Llama 3 Take Aways",
+  //   url: "/llama3",
+  //   notStarted: true,
+  // },
+  // {
+  //   title: "AnimateDiff",
+  //   url: "/animate-diff",
+  //   notStarted: true,
+  // },
+  // {
+  //   title: "Guided video synthesis",
+  //   url: "/guided-video-synthesis",
+  //   notStarted: true,
+  // },
+  // {
+  //   title: "Control Net",
+  //   url: "/control-net",
+  //   notStarted: true,
+  // },
+  // {
+  //   title:
+  //     "Lumiere: video generation by space-time diffusion",
+  //   url: "/lumiere",
+  //   notStarted: true,
+  // },
+  // {
+  //   title: "Diffusion on Riemannian Manifold",
+  //   url: "/manifold-diffusion",
+  //   notStarted: true,
+  // },
+  // {
+  //   title: 'Survey of ML from the Applied Mathematics Point of View (Nov edition)',
+  //   url: '/Nov-24-survey',
+  //   notStarted: true,
+  // },
+  // {
+  //   title: 'Preference Optimization',
+  //   url: '/preference-optimization',
+  //   notStarted: true,
+  // },
+  // {
+  //   title: 'Scaling Laws for Precision',
+  //   url: 'scaling-law-precision',
+  //   notStarted: true,
+  // },
+  // {
+  //   title: "Neural Operator with Memory (MemNO)",
+  //   url: "/mem-no",
+  //   notStarted: true,
+  // },
+  // {
+  //   title: 'Local score matching for nonlinear processes',
+  //   url: '/nonlinear-diffusion',
+  //   notStarted: true,
+  // },
+  // {
+  //   title: "WALT video diffusion model",
+  //   url: "/walt",
+  //   notStarted: true,
+  // },
+  // {
+  //   title: "World Model via Joint Embedding Predictive Architectures",
+  //   url: "/jepa",
+  //   notStarted: true,
+  // },
+  // {
+  //   title: 'Information Divergences',
+  //   url: 'information-divergences',
+  //   notStarted: true,
+  // },
+  // {
+  //   title: 'Gromov Wasserstein Distance Between Spheres',
+  //   url: 'gromov-wasserstein-distance',
+  //   notStarted: true,
+  // },
+  // {
+  //   title: "VideoPoet: LLM video generation",
+  //   url: "/video-poet",
+  // },
   {
     title: "Stable video diffusion",
     url: "/stable-video-diffusion",
