@@ -113,25 +113,25 @@ const blogPosts = [
   //   title: "VideoPoet: LLM video generation",
   //   url: "/video-poet",
   // },
-  {
-    title: "Stable video diffusion",
-    url: "/stable-video-diffusion",
-  },
-  {
-    title: "Movie Gen",
-    url: "/movie-gen",
-    inProgress: true,
-  },
+  // {
+  //   title: "Stable video diffusion",
+  //   url: "/stable-video-diffusion",
+  // },
+  // {
+  //   title: "Movie Gen",
+  //   url: "/movie-gen",
+  //   inProgress: true,
+  // },
   {
     title: "Score entropy discrete diffusion models",
     url: "/score-entropy-discrete-diffusion",
     inProgress: true,
   },
-  {
-    title: "Wasserstein Gradient Flow and Otto Calculus",
-    url: "/gradient-flow",
-    inProgress: true,
-  },
+  // {
+  //   title: "Wasserstein Gradient Flow and Otto Calculus",
+  //   url: "/gradient-flow",
+  //   inProgress: true,
+  // },
   {
     title: "A Primal Dual Langevin Monte Carlo Algorithm",
     url: "/primal-dual-langevin-mc",
