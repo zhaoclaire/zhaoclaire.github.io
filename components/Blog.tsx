@@ -46,9 +46,11 @@ export default function Blog({
   function NavBar() {
     return (
       <SimpleGrid columns={2} spacing={10}>
-        <Button variant={"outline"} onClick={() => router.push("/")}>
-          🏠 Home
-        </Button>
+        <Link as={NextLink} href={"https://zxjrsch.github.io"} isExternal>
+          <Button variant={"outline"}>
+            🏠 Home
+          </Button>
+        </Link>
         <Button variant={"outline"} onClick={() => onOpen()}>
           <Text as="b">
             📚 Reading List{" "}
